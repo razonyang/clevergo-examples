@@ -1,2 +1,2 @@
-# clevergo
+# CleverGo
 CleverGo
