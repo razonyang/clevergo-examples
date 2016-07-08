@@ -5,9 +5,12 @@
 package main
 
 import (
-	"fmt"
 	"github.com/headwindfly/clevergo"
 	"log"
+)
+
+var (
+	helloCleverGo = []byte("Hello CleverGo!\n")
 )
 
 type User struct {
@@ -16,7 +19,7 @@ type User struct {
 }
 
 func hello(ctx *clevergo.Context) {
-	fmt.Fprint(ctx, "Hello CleverGo!\n")
+	ctx.Write(helloCleverGo)
 }
 
 func html(ctx *clevergo.Context) {
