@@ -5,16 +5,21 @@ make developer easily to build a high-performance, secure and stronger web appli
 
 # Features
 - **high performance**
+
 CleverGo uses **fasthttp** instead of **net/http**, so it is more fast than net/http‘s frameworks,
-and not only that, it uses [**fasthttprouter**](https://github.com/buaazp/fasthttprouter) as handler's router.
+and not only that, it uses [**fasthttprouter**](https://github.com/buaazp/fasthttprouter) as handler's router,
+and it's architecture is very simple so make it run fast.
 
 - **lightweight**
+
 CleverGo's architecture is very simple, such as the design of the [**Middleware**](middleware.go).
 
 - **easy to use**
-We provides some examples below, see also **Examples**[#examples].
+
+We provides some examples below, see also [**Examples**](#examples).
 
 - **variety of components**
+
 | Name             | Description              | Usage                                         |
 | :---             | :------------------      | :-------------------------------------------- |
 | Middleware       | Middleware               | [**Middleware**](examples/middleware.go)      |
