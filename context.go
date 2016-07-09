@@ -12,7 +12,6 @@ import (
 	"github.com/headwindfly/mustache"
 	"github.com/headwindfly/sessions"
 	"github.com/valyala/fasthttp"
-	"net/http"
 )
 
 type Context struct {
@@ -122,67 +121,67 @@ func (ctx *Context) RenderInLayout(filename string, layoutFile string, args ...i
 }
 
 func (ctx *Context) ResponseForbidden(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusForbidden)
+	ctx.Response.SetStatusCode(fasthttp.StatusForbidden)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusForbidden)
+		msg = fasthttp.StatusMessage(fasthttp.StatusForbidden)
 	}
 	ctx.Response.SetBodyString(msg)
 }
 
 func (ctx *Context) ResponseNotFound(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusNotFound)
+	ctx.Response.SetStatusCode(fasthttp.StatusNotFound)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusNotFound)
+		msg = fasthttp.StatusMessage(fasthttp.StatusNotFound)
 	}
 	ctx.Response.SetBodyString(msg)
 }
 
 func (ctx *Context) ResponseMethodNotAllowed(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusMethodNotAllowed)
+	ctx.Response.SetStatusCode(fasthttp.StatusMethodNotAllowed)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusMethodNotAllowed)
+		msg = fasthttp.StatusMessage(fasthttp.StatusMethodNotAllowed)
 	}
 	ctx.Response.SetBodyString(msg)
 }
 
 func (ctx *Context) ResponseInternalServerError(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusInternalServerError)
+	ctx.Response.SetStatusCode(fasthttp.StatusInternalServerError)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusInternalServerError)
+		msg = fasthttp.StatusMessage(fasthttp.StatusInternalServerError)
 	}
 	ctx.Response.SetBodyString(msg)
 }
 
 func (ctx *Context) ResponseUnauthorized(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusUnauthorized)
+	ctx.Response.SetStatusCode(fasthttp.StatusUnauthorized)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusUnauthorized)
+		msg = fasthttp.StatusMessage(fasthttp.StatusUnauthorized)
 	}
 	ctx.Response.SetBodyString(msg)
 }
 
 func (ctx *Context) ResponseBadRequest(args ...string) {
-	ctx.Response.SetStatusCode(http.StatusBadRequest)
+	ctx.Response.SetStatusCode(fasthttp.StatusBadRequest)
 	var msg string
 	if len(args) > 0 {
 		msg = args[0]
 	} else {
-		msg = http.StatusText(http.StatusBadRequest)
+		msg = fasthttp.StatusMessage(fasthttp.StatusBadRequest)
 	}
 	ctx.Response.SetBodyString(msg)
 }
