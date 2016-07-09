@@ -31,3 +31,6 @@ func main() {
 }
 ```
 然后访问 http://127.0.0.1:8080 即可看到“Hello CleverGo.”字样。
+
+## 使用案例
+[Examples](/examples)
