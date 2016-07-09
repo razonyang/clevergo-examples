@@ -9,6 +9,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/buaazp/fasthttprouter"
+	"github.com/headwindfly/jwt"
 	"github.com/headwindfly/mustache"
 	"github.com/headwindfly/sessions"
 	"github.com/valyala/fasthttp"
@@ -19,6 +20,7 @@ type Context struct {
 	*fasthttp.RequestCtx
 	RouterParams *fasthttprouter.Params
 	Session      *sessions.Session
+	Token        *jwt.Token // JSON WEB TOKEN
 }
 
 func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *fasthttprouter.Params) *Context {

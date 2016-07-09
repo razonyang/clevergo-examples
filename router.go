@@ -23,10 +23,6 @@ func NewRouter() *Router {
 	}
 }
 
-func (r *Router) SessionStore() sessions.Store {
-	return r.sessionStore
-}
-
 func (r *Router) SetSessionStore(store sessions.Store) {
 	r.sessionStore = store
 }
