@@ -18,7 +18,7 @@ CleverGo's architecture is very simple, such as the design of the [**Middleware*
 
 We provides some examples below, see also [**Examples**](#examples).
 
-- **variety of components**
+- **components**
 
 | Name             | Description              | Usage                                         |
 | :---             | :------------------      | :-------------------------------------------- |
@@ -32,7 +32,7 @@ We provides some examples below, see also [**Examples**](#examples).
 See also [**Go Web Framework Benchmark**](https://github.com/headwindfly/go-web-framework-benchmark).
 
 # Documentation
-- [**中文文档**](docs/zh)
+- [**中文**](docs/zh)
 - [**English**](docs/en)
 
 # Examples
