@@ -25,15 +25,15 @@ type JWTMiddleware struct {
 	formKey string
 }
 
-func NewJWTMiddleware(jwt *jwt.JWT) *JWTMiddleware {
-	return &JWTMiddleware{
+func NewJWTMiddleware(jwt *jwt.JWT) JWTMiddleware {
+	return JWTMiddleware{
 		jwt:     jwt,
 		urlKey:  urlKey,
 		formKey: formKey,
 	}
 }
 
-func (jm *JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
+func (jm JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// Try to get JWT raw token from URL query string.
 		rawToken := ctx.FormValue(jm.urlKey)

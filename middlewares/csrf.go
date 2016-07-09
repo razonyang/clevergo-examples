@@ -36,8 +36,8 @@ type CSRFMiddleware struct {
 	ErrInvalid  string
 }
 
-func NewCSRFMiddleware() *CSRFMiddleware {
-	return &CSRFMiddleware{
+func NewCSRFMiddleware() CSRFMiddleware {
+	return CSRFMiddleware{
 		Len:         32, // length of token.
 		MaskLen:     8,  // length mask.
 		Key:         key,
@@ -49,7 +49,7 @@ func NewCSRFMiddleware() *CSRFMiddleware {
 	}
 }
 
-func (m *CSRFMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
+func (m CSRFMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		if ctx.Session == nil {
 			ctx.GetSession()
@@ -81,7 +81,7 @@ func (m *CSRFMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 
 // Get token from session.
 // Returns non-nil error if the token does not exists or invalid.
-func (m *CSRFMiddleware) Token(ctx *clevergo.Context) ([]byte, error) {
+func (m CSRFMiddleware) Token(ctx *clevergo.Context) ([]byte, error) {
 	token, err := ctx.Session.Get(m.SessionKey)
 	if (err != nil) || (token == nil) {
 		return utils.RandomBytes(m.Len), errTokenNotExists

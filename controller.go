@@ -19,37 +19,37 @@ type ControllerInterface interface {
 type Controller struct {
 }
 
-func (rest *Controller) Handle(next Handler) Handler {
+func (c Controller) Handle(next Handler) Handler {
 	return HandlerFunc(func(ctx *Context) {
 		// Invoke the request handler.
 		next.Handle(ctx)
 	})
 }
 
-func (rest *Controller) DELETE(ctx *Context) {
+func (c Controller) DELETE(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) GET(ctx *Context) {
+func (c Controller) GET(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) HEAD(ctx *Context) {
+func (c Controller) HEAD(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) OPTIONS(ctx *Context) {
+func (c Controller) OPTIONS(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) PATCH(ctx *Context) {
+func (c Controller) PATCH(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) POST(ctx *Context) {
+func (c Controller) POST(ctx *Context) {
 	ctx.ResponseForbidden()
 }
 
-func (rest *Controller) PUT(ctx *Context) {
+func (c Controller) PUT(ctx *Context) {
 	ctx.ResponseForbidden()
 }
