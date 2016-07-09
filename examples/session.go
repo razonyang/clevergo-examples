@@ -19,7 +19,7 @@ var router *clevergo.Router
 func getSession(ctx *clevergo.Context) {
 	// Get session.
 	ctx.GetSession()
-	defer ctx.GetSession()
+	defer ctx.SaveSession()
 
 	if number, ok := ctx.Session.Values["randomNumber"]; ok {
 		fmt.Fprint(ctx, fmt.Sprintf("The random number is: %d.\n", number))
@@ -32,7 +32,7 @@ func getSession(ctx *clevergo.Context) {
 func setSession(ctx *clevergo.Context) {
 	// Get session.
 	ctx.GetSession()
-	defer ctx.GetSession()
+	defer ctx.SaveSession()
 
 	// Set random number.
 	randomNumber := rand.Intn(100)
