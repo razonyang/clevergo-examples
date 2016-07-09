@@ -11,13 +11,12 @@ type Middleware interface {
 	Handle(next Handler) Handler // handle request.
 }
 
-type FirstMiddleware struct {
+type BaseMiddleware struct {
 }
 
-func (fm *FirstMiddleware) Handle(next Handler) Handler {
+func (bm *BaseMiddleware) Handle(next Handler) Handler {
 	return HandlerFunc(func(ctx *Context) {
-		fmt.Println("1\n")
-		ctx.Response.Header.Add("FirstMiddleware", "FirstMiddleware")
+		// Invoke the next middleware.
 		next.Handle(ctx)
 	})
 }
