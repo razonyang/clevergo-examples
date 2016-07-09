@@ -19,7 +19,7 @@ See also [**Go Web Framework Benchmark**](https://github.com/headwindfly/go-web-
 - [**Session**](examples/session.go)
 - [**Restful API**](examples/controller.go)
 - [**CSRF Protection**](examples/csrf.go)
+- [**Captcha**](examples/captcha.go)
 
 # TODO LIST
 - Add support for JSON WEB TOKEN(JWT).
-- Add support for captcha.
