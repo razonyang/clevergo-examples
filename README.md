@@ -9,12 +9,16 @@ make developer easily to build a high-performance, secure and stronger web appli
 # Benchmark
 See also [**Go Web Framework Benchmark**](https://github.com/headwindfly/go-web-framework-benchmark).
 
+# Documentation
+- [**中文文档**](docs/zh)
+- [**English**](docs/en)
+
 # Examples
-- [**Basic Usages**](https://github.com/headwindfly/clevergo/blob/master/examples/base.go)
-- [**Middleware**](https://github.com/headwindfly/clevergo/blob/master/examples/middleware.go)
-- [**Session**](https://github.com/headwindfly/clevergo/blob/master/examples/session.go)
-- [**Restful API**](https://github.com/headwindfly/clevergo/blob/master/examples/controller.go)
-- [**CSRF Protection**](https://github.com/headwindfly/clevergo/blob/master/examples/csrf.go)
+- [**Basic Usages**](examples/base.go)
+- [**Middleware**](examples/middleware.go)
+- [**Session**](examples/session.go)
+- [**Restful API**](examples/controller.go)
+- [**CSRF Protection**](examples/csrf.go)
 
 # TODO LIST
 - Add support for JSON WEB TOKEN(JWT).
