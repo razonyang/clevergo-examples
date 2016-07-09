@@ -17,3 +17,6 @@ type Middleware interface {
 
 ### 案例
 [Middleware Example](/examples/middleware.go)
+
+## Shortcut
+* [目录](README.md)
