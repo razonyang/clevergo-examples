@@ -14,7 +14,7 @@ go run $GOPATH/src/headwindfly/clevergo/examples/captcha.go
 
 2. 允许客户端刷新验证码
 
-目前这个例子，并没有使用Session来存储，以后有空会将其改进，如果能贡献响应的实例就最好不过了:)
+目前这个例子，并没有使用Session来存储，以后有空会将其改进，如果能贡献你的代码就最好不过了:)
 
 ## Shortcut
 * [目录](README.md)
