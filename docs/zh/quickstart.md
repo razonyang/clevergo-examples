@@ -34,3 +34,6 @@ func main() {
 
 ## 使用案例
 [Examples](/examples)
+
+## Shortcut
+* [目录](README.md)
