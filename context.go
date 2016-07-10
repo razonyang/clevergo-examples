@@ -119,7 +119,7 @@ func (ctx *Context) Render(file string, args ...interface{}) {
 }
 
 func (ctx *Context) RenderInLayout(filename string, layoutFile string, args ...interface{}) {
-	ctx.HTML(mustache.RenderInLayout(filename, layoutFile, args...))
+	ctx.HTML(mustache.RenderFileInLayout(filename, layoutFile, args...))
 }
 
 func (ctx *Context) ResponseForbidden(args ...string) {
