@@ -39,25 +39,20 @@ func jwtGet(ctx *clevergo.Context) {
 }
 
 func jwtVerify(ctx *clevergo.Context) {
-	if ctx.Token != nil {
-		if err := ctx.Token.Validate(); err == nil {
-			ctx.Text("Congratulation! Your token is valid.")
-			return
-		}
-	}
-
-	ctx.Text("Sorry! Your token is invalid.")
+	ctx.Text("Congratulation! Your token is valid.")
 }
 
 func main() {
 	// Create a router instance.
 	router := clevergo.NewRouter()
 
+	// Not that register jwtGet handler first to cross the JWT Middleware.
+	router.GET("/", clevergo.HandlerFunc(jwtGet))
+
 	// Add JWT Middleware
 	router.AddMiddleware(middleware.NewJWTMiddleware(j))
 
 	// Register route handler.
-	router.GET("/", clevergo.HandlerFunc(jwtGet))
 	router.GET("/verify", clevergo.HandlerFunc(jwtVerify))
 	router.POST("/verify", clevergo.HandlerFunc(jwtVerify))
 

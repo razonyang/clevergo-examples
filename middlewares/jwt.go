@@ -53,7 +53,7 @@ func (jm JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 
 		// Check raw token is valid.
 		if len(rawToken) == 0 {
-			next.Handle(ctx)
+			ctx.ResponseUnauthorized()
 			return
 		}
 
@@ -61,7 +61,13 @@ func (jm JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 		var err error
 		ctx.Token, err = jm.jwt.NewTokenByRaw(string(rawToken))
 		if err != nil {
-			next.Handle(ctx)
+			ctx.ResponseUnauthorized()
+			return
+		}
+
+		// Validate Token.
+		if err := ctx.Token.Validate(); err != nil {
+			ctx.ResponseUnauthorized()
 			return
 		}
 
