@@ -3,7 +3,7 @@ Context上下文包含了Request和Response，以及一些常用的方法
 
 ## 成员
 * [fasthttp.RequestCtx]的所有成员
-* [RouterParams] Router参数，参阅[Router](router.md)
+* [RouterParams] Router参数，参阅[Router](router.md)，ByName(name string)用于获取PATH的参数，比如"/user/:name"，对应RouterParams.ByName("name")
 * [Session] Session，参阅[Session](session.md)
 * [Token] JSON WEB TOKEN
 
