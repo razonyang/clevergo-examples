@@ -1,6 +1,9 @@
 # 中间件 Middleware
-中间件在CleverGo里，亦被称为过滤器。
+中间件在CleverGo里，亦可称之为过滤器、预处理器。
+
 它运行于业务逻辑之前，可以用于过滤非法请求，比如预防**CSRF**（Cross-site request forgery 跨站请求伪造）攻击、IP黑白名单等。
+
+此外，还可以做预处理器，比如JWT中间件，用于获取JSON WEB TOKEN，以鉴别用户身份。
 
 ## 内置的中间件
 * [CSRF Middleware](/examples/csrf.go) 用于预防CSRF攻击，该中间件基于Session，参阅[会话](session.md)。
