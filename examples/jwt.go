@@ -46,7 +46,10 @@ func main() {
 	// Create a router instance.
 	router := clevergo.NewRouter()
 
-	// Not that register jwtGet handler first to cross the JWT Middleware.
+	// Note that.
+	// Before registering middleware, we should register jwtGet handler first.
+	// In order to cross over the JWT Middleware,
+	// otherwise the jwtGet handler will be blocked by the JWT Middleware.
 	router.GET("/", clevergo.HandlerFunc(jwtGet))
 
 	// Add JWT Middleware
