@@ -21,7 +21,7 @@ const (
 )
 
 func Run() {
-	fmt.Printf("\x1b[33;1m%s %s\x1b[0m\n\n\x1b[32;1mStarted at %s\x1b[0m\n", Logo, Version, time.Now())
+	fmt.Printf("\x1b[36;1m%s %s\x1b[0m\n\n\x1b[32;1mStarted at %s\x1b[0m\n", Logo, Version, time.Now())
 }
 
 func ListenAndServe(addr string, handler fasthttp.RequestHandler) error {
