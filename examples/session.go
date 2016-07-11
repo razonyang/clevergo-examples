@@ -27,6 +27,8 @@ func getSession(ctx *clevergo.Context) {
 	}
 
 	fmt.Fprint(ctx, "No random number.\n")
+
+	fmt.Fprintf(ctx, "If it does not work, make sure that your redis-server is started.")
 }
 
 func setSession(ctx *clevergo.Context) {

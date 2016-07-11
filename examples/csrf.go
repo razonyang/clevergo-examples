@@ -22,6 +22,7 @@ func CSRFGet(ctx *clevergo.Context) {
 	<b>%s</b><br>
 	Send post request to http://127.0.0.1:8080/ to verify the CSRF token.<br>
 	You should store the token arg into request's header(<b>%s</b>) or form(<b>%s</b>).<br>
+	If it does not work, make sure that your redis-server is started.<br>
 	`,
 		ctx.UserValue(csrf.Key),
 		csrf.HeaderKey,
