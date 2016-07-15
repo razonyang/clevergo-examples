@@ -3,6 +3,15 @@
 This project aims to become a powerful web development tool and 
 make developer easily to build a high-performance, secure and stronger web application.
 
+**This project has just been launched, if you find a bug , please tell me,
+ I will fix it as soon as possible.**
+
+**And all comments or suggestions regarding CleverGo web framework are welcome. :)**
+
+# Official Website
+**https://headwindfly.com**
+This site powered by CleverGo, a **LIVE DEMO** of CleverGo.
+
 # Features
 - **high performance**
 
@@ -46,7 +55,7 @@ See also [**Go Web Framework Benchmark**](https://github.com/headwindfly/go-web-
 - [**JSON WBE TOKEN**](examples/jwt.go)
 
 # TODO LIST
-- **Official Website** an open source project based on CleverGo :)
+- **Documentation**
 - **WebSocket**
 
 # Relevant Projects
