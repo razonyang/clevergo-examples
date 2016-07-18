@@ -39,7 +39,7 @@ We provides some examples below, see also [**Examples**](#examples).
 | JWT              | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](examples/jwt.go)         |
 
 # Benchmark
-See also [**Go Web Framework Benchmark**](https://github.com/headwindfly/go-web-framework-benchmark).
+See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
 
 # Documentation
 - [**中文**](docs/zh)
