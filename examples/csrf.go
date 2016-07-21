@@ -8,13 +8,12 @@ import (
 	"fmt"
 	"github.com/garyburd/redigo/redis"
 	"github.com/headwindfly/clevergo"
-	"github.com/headwindfly/clevergo/middlewares"
 	"github.com/headwindfly/sessions"
 	"log"
 	"time"
 )
 
-var csrf = middleware.NewCSRFMiddleware()
+var csrf = clevergo.NewCSRFMiddleware()
 
 func CSRFGet(ctx *clevergo.Context) {
 	ctx.HTML(fmt.Sprintf(`

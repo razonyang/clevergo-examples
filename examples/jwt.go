@@ -6,8 +6,8 @@ package main
 
 import (
 	"crypto"
+	"fmt"
 	"github.com/headwindfly/clevergo"
-	"github.com/headwindfly/clevergo/middlewares"
 	"github.com/headwindfly/jwt"
 	"log"
 	"math/rand"
@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	ttl = int64(20)
+	ttl = int64(10)
 	j   = jwt.NewJWT("CleverGo", ttl)
 )
 
@@ -34,8 +34,14 @@ func jwtGet(ctx *clevergo.Context) {
 		ctx.Textf("Failed to generate token: %s", err.Error())
 		return
 	}
+	// Parse the token in order to get raw token.
 	token.Parse()
-	ctx.Textf("JWT token(effective within %d seconds):\n%s", ttl, token.Raw.Token())
+	ctx.HTML(fmt.Sprintf(`
+	JWT token(effective within %d seconds):<br>
+	<textarea rows="3" cols="60">%s</textarea><br>
+	<a target="_blank" href="/verify?_jwt=%s">Verify Token</a>
+	`, ttl, token.Raw.Token(), token.Raw.Token()))
+
 }
 
 func jwtVerify(ctx *clevergo.Context) {
@@ -53,7 +59,7 @@ func main() {
 	router.GET("/", clevergo.HandlerFunc(jwtGet))
 
 	// Add JWT Middleware
-	router.AddMiddleware(middleware.NewJWTMiddleware(j))
+	router.AddMiddleware(clevergo.NewJWTMiddleware(j))
 
 	// Register route handler.
 	router.GET("/verify", clevergo.HandlerFunc(jwtVerify))
