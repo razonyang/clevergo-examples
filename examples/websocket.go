@@ -6,60 +6,38 @@ package main
 
 import (
 	"github.com/headwindfly/clevergo"
+	"github.com/headwindfly/websocket"
+	"html/template"
 	"log"
-	"os"
-	"path"
 )
 
-var (
-	helloCleverGo = []byte("Hello CleverGo!\n")
-	resourcesPath = path.Join(os.Getenv("GOPATH"), "src", "github.com", "headwindfly", "clevergo", "examples")
-)
+// Create a fasthttp upgrader.
+var upgrader = websocket.FastHTTPUpgrader{}
 
-type User struct {
-	Name string `json:"name" xml:"name"`
-	Team string `json:"team" xml:"team"`
+// Create a websocket connection handler.
+var connHandler = func(c *websocket.Conn) {
+	for {
+		mt, message, err := c.ReadMessage()
+		if err != nil {
+			log.Println("read:", err)
+			break
+		}
+		log.Printf("recv: %s", message)
+		err = c.WriteMessage(mt, message)
+		if err != nil {
+			log.Println("write:", err)
+			break
+		}
+	}
 }
 
-func hello(ctx *clevergo.Context) {
-	ctx.Write(helloCleverGo)
+func echo(ctx *clevergo.Context) {
+	upgrader.Upgrade(ctx.RequestCtx, connHandler)
 }
 
-func html(ctx *clevergo.Context) {
-	ctx.HTML("Hello CleverGo!\n")
-}
-
-func json(ctx *clevergo.Context) {
-	ctx.JSON(User{
-		Name: "HeadwindFly",
-		Team: "CleverGo",
-	})
-}
-
-func jsonp(ctx *clevergo.Context) {
-	callback := ctx.FormValue("callback")
-	ctx.JSONP(User{
-		Name: "HeadwindFly",
-		Team: "CleverGo",
-	}, callback)
-}
-
-func xml(ctx *clevergo.Context) {
-	ctx.XML(User{
-		Name: "HeadwindFly",
-		Team: "CleverGo",
-	}, "")
-}
-
-func params(ctx *clevergo.Context) {
-	name := ctx.RouterParams.ByName("name")
-	ctx.Textf("Hello %s.", name)
-}
-
-func multiParams(ctx *clevergo.Context) {
-	param1 := ctx.RouterParams.ByName("param1")
-	param2 := ctx.RouterParams.ByName("param2")
-	ctx.Textf("Your params is %s and %s", param1, param2)
+func home(ctx *clevergo.Context) {
+	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+	homeTemplate.Execute(ctx, "ws://"+string(ctx.Host())+"/echo")
 }
 
 func main() {
@@ -67,20 +45,87 @@ func main() {
 	router := clevergo.NewRouter()
 
 	// Register route handler.
-	router.GET("/", clevergo.HandlerFunc(hello))
-	router.GET("/html", clevergo.HandlerFunc(html))
-	router.GET("/json", clevergo.HandlerFunc(json))
-	router.GET("/jsonp", clevergo.HandlerFunc(jsonp))
-	router.GET("/xml", clevergo.HandlerFunc(xml))
-	// Navigate to http://127.0.0.1:8080/params/yourname.
-	router.GET("/params/:name", clevergo.HandlerFunc(params))
-	// Navigate to http://127.0.0.1:8080/multi-params/param1/param2.
-	router.GET("/multi-params/:param1/:param2", clevergo.HandlerFunc(multiParams))
-
-	// Static resource files.
-	// Navigate to http://127.0.0.1:8080/examples/base.go
-	router.ServeFiles("/examples/*filepath", resourcesPath)
+	router.GET("/", clevergo.HandlerFunc(home))
+	router.GET("/echo", clevergo.HandlerFunc(echo))
 
 	// Start server.
 	log.Fatal(clevergo.ListenAndServe(":8080", router.Handler))
 }
+
+var homeTemplate = template.Must(template.New("").Parse(`
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<script>
+window.addEventListener("load", function(evt) {
+
+    var output = document.getElementById("output");
+    var input = document.getElementById("input");
+    var ws;
+
+    var print = function(message) {
+        var d = document.createElement("div");
+        d.innerHTML = message;
+        output.appendChild(d);
+    };
+
+    document.getElementById("open").onclick = function(evt) {
+        if (ws) {
+            return false;
+        }
+        ws = new WebSocket("{{.}}");
+        ws.onopen = function(evt) {
+            print("OPEN");
+        }
+        ws.onclose = function(evt) {
+            print("CLOSE");
+            ws = null;
+        }
+        ws.onmessage = function(evt) {
+            print("RESPONSE: " + evt.data);
+        }
+        ws.onerror = function(evt) {
+            print("ERROR: " + evt.data);
+        }
+        return false;
+    };
+
+    document.getElementById("send").onclick = function(evt) {
+        if (!ws) {
+            return false;
+        }
+        print("SEND: " + input.value);
+        ws.send(input.value);
+        return false;
+    };
+
+    document.getElementById("close").onclick = function(evt) {
+        if (!ws) {
+            return false;
+        }
+        ws.close();
+        return false;
+    };
+
+});
+</script>
+</head>
+<body>
+<table>
+<tr><td valign="top" width="50%">
+<p>Click "Open" to create a connection to the server,
+"Send" to send a message to the server and "Close" to close the connection.
+You can change the message and send multiple times.
+<p>
+<form>
+<button id="open">Open</button>
+<button id="close">Close</button>
+<p><input id="input" type="text" value="Hello world!">
+<button id="send">Send</button>
+</form>
+</td><td valign="top" width="50%">
+<div id="output"></div>
+</td></tr></table>
+</body>
+</html>
+`))
