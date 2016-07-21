@@ -63,8 +63,8 @@ func main() {
 
 	// Create a redis session store.
 	store := sessions.NewRedisStore(redisPool, sessions.Options{
-		MaxAge: 3600 * 24 * 7, // 10 seconds.
-		// Domain:".clevergo.dev",
+		MaxAge: 3600 * 24 * 7, // 7 days.
+		// Domain:".headwindfly.com",
 		// HttpOnly:true,
 		// Secure:true,
 	})
