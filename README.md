@@ -4,7 +4,7 @@ It built on top of [fasthttp](https://github.com/valyala/fasthttp).
 This project aims to become a powerful web development tool and 
 make developer easily to build a high-performance, secure and stronger web application.
 
-**This project has just been launched, if you find a bug, [please tell me](issues/new),
+**This project has just been launched, if you find a bug, [please tell me](https://github.com/headwindfly/clevergo/issues/new),
  I will fix it as soon as possible.**
 
 **And all comments or suggestions regarding CleverGo web framework are welcome. :)**
