@@ -40,36 +40,35 @@ and it's architecture is very simple and no reflect, so it runs fast.
 See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
 
 # Documentation
-- [**中文**](docs/zh)
-- [**English**](docs/en)
+- [**中文**](https://github.com/clevergo/docs/zh)
+- [**English**](https://github.com/clevergo/docs/en)
+
+# Examples
+https://github.com/clevergo/examples
+
+- [**Basic Usages**](https://github.com/clevergo/examples/basic)
+- [**Middleware**](https://github.com/clevergo/examples/middleware)
+- [**WebSocket**](https://github.com/clevergo/examples/websocket)
+- [**Session**](https://github.com/clevergo/examples/session)
+- [**Restful API**](https://github.com/clevergo/examples/rest)
+- [**CSRF Protection**](https://github.com/clevergo/examples/csrf)
+- [**Captcha**](https://github.com/clevergo/examples/captcha)
+- [**JSON WBE TOKEN**](https://github.com/clevergo/examples/jwt)
+
+# Relevant Projects
+- [**fasthttp**](https://github.com/valyala/fasthttp)
+- [**fasthttprouter**](https://github.com/buaazp/fasthttprouter)
+- [**websocket**](https://github.com/clevergo/websocket)
+- [**sessions**](https://github.com/clevergo/sessions)
+- [**captcha**](https://github.com/clevergo/captcha)
+- [**csrf**](https://github.com/clevergo/csrf)
+- [**jwt**](https://github.com/clevergo/jwt)
+- [**mustache**](https://github.com/clevergo/mustache)
+- [**utils**](https://github.com/clevergo/utils)
+
 
 # Official Website
 **https://headwindfly.com**
 This site powered by CleverGo, a **LIVE DEMO** of CleverGo.
 
 It's source code can be found [**here**](https://github.com/headwindfly/headwindfly.com).
-
-# Examples
-- [**Basic Usages**](examples/base.go)
-- [**Middleware**](examples/middleware.go)
-- [**WebSocket**](examples/websocket.go)
-- [**Session**](examples/session.go)
-- [**Restful API**](examples/controller.go)
-- [**CSRF Protection**](examples/csrf.go)
-- [**Captcha**](examples/captcha.go)
-- [**JSON WBE TOKEN**](examples/jwt.go)
-
-# TODO LIST
-- **Documentation**
-- **Logger Component**
-
-# Relevant Projects
-- [**fasthttp**](https://github.com/valyala/fasthttp)
-- [**fasthttprouter**](https://github.com/buaazp/fasthttprouter)
-- [**websocket**](https://github.com/headwindfly/websocket)
-- [**sessions**](https://github.com/headwindfly/sessions)
-- [**captcha**](https://github.com/headwindfly/captcha)
-- [**csrf**](https://github.com/headwindfly/csrf)
-- [**jwt**](https://github.com/headwindfly/jwt)
-- [**mustache**](https://github.com/headwindfly/mustache)
-- [**utils**](https://github.com/headwindfly/utils)

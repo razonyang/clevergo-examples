@@ -9,9 +9,9 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/buaazp/fasthttprouter"
-	"github.com/headwindfly/jwt"
-	"github.com/headwindfly/mustache"
-	"github.com/headwindfly/sessions"
+	"github.com/clevergo/jwt"
+	"github.com/clevergo/mustache"
+	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 )
 
@@ -32,11 +32,11 @@ func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *fasthttprouter.Params)
 }
 
 func (ctx *Context) GetSession() {
-	ctx.Session, _ = ctx.router.sessionStore.Get(&ctx.RequestCtx.Request.Header, "GOSESSION")
+	ctx.Session, _ = ctx.router.sessionStore.Get(ctx.RequestCtx, "GOSESSION")
 }
 
 func (ctx *Context) SaveSession() error {
-	return ctx.router.sessionStore.Save(&ctx.Response.Header, ctx.Session)
+	return ctx.router.sessionStore.Save(ctx.RequestCtx, ctx.Session)
 }
 
 func (ctx *Context) JSON(v interface{}) {
@@ -72,15 +72,16 @@ func (ctx *Context) JSONPWithCode(code int, v interface{}, callback []byte) {
 	ctx.JSONP(v, callback)
 }
 
-func (ctx *Context) XML(v interface{}, header string) {
+func (ctx *Context) XML(v interface{}, headers ...string) {
 	xmlBytes, err := xml.MarshalIndent(v, "", `   `)
 	if err != nil {
 		fmt.Fprint(ctx, err.Error())
 		return
 	}
 
-	if len(header) == 0 {
-		header = xml.Header
+	header := xml.Header
+	if len(headers) > 0 {
+		header = headers[0]
 	}
 
 	var bytes []byte

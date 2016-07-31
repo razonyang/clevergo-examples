@@ -6,7 +6,7 @@ package clevergo
 
 import (
 	"github.com/buaazp/fasthttprouter"
-	"github.com/headwindfly/sessions"
+	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 )
 
