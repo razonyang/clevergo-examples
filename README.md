@@ -1,25 +1,33 @@
 # CleverGo
-**CleverGo** is a **simple**, **high performance** and **secure** web framework for Golang.
-It built on top of [fasthttp](https://github.com/valyala/fasthttp).
-This project aims to become a powerful web development tool and 
-make developer easily to build a high-performance, secure and stronger web application.
+**CleverGo** is a **simple**, **high performance** and **secure** web framework for Go(go programing language).
+It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
-# Features
-- **high performance**
-    CleverGo uses **fasthttp** instead of **net/http**, so it is more fast than net/http‘s frameworks,
-and not only that, it uses [**router**](https://github.com/buaazp/fasthttprouter) as handler's router,
-and it's architecture is very simple and no reflect, so it runs fast.
+### Features
+- **High performance**
 
-- **lightweight**
-    CleverGo's architecture is very simple, such as the design of the [**Middleware**](middleware.go) and [**Handler**](handler.go).
+    1. CleverGo uses **fasthttp** instead of **net/http**, so it is more fast than net/http‘s frameworks.
+    2. CleverGo's handler [**router**](https://github.com/clevergo/router) is a high performance router(fork from [fasthttprouter](https://github.com/buaazp/fasthttprouter)).
+    3. Simple architecture.
+    4. No reflect.
 
-- **easy to use**
+See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
+![Go Web Framework Benchmark](https://github.com/smallnest/go-web-framework-benchmark/raw/master/benchmark.png "Go Web Framework Benchmark")
+
+- **Lightweight**
+
+    CleverGo's architecture is very simple, such as the [**Middleware**](middleware.go) and [**Handler**](handler.go).
+
+- **Easy to use**
+
     We provides some examples below, see also [**Examples**](#examples).
 
-- **components**
+- **Components and examples**
 
-| Name                 | Description                                   | Usage                                                                  |
-| :---                 | :---------------------------------------------| :----------------------------------------------------------------------|
+More examples can be found at https://github.com/clevergo/examples.
+
+| Name                 | Description                                   | Usage                                                                              |
+| :---                 | :---------------------------------------------| :----------------------------------------------------------------------------------|
+| **Basic Usage**      | Basic Usgae                                   | [**Middleware**](https://github.com/clevergo/examples/tree/master/basic)           |
 | **Middleware**       | Middleware                                    | [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)      |
 | **Websocket**        | Websocket                                     | [**Websocket**](https://github.com/clevergo/examples/tree/master/websocket)        |
 | **Session**          | Session                                       | [**Session**](https://github.com/clevergo/examples/tree/master/session)            |
@@ -28,35 +36,31 @@ and it's architecture is very simple and no reflect, so it runs fast.
 | **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)            |
 | **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
 
-# Benchmark
-See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
-![Go Web Framework Benchmark](https://github.com/smallnest/go-web-framework-benchmark/raw/master/benchmark.png "Go Web Framework Benchmark")
-
-# Documentation
+### Documentation
 - [**English**](https://github.com/clevergo/docs/en)
 - [**中文**](https://github.com/clevergo/docs/zh)
 
-# Examples
-https://github.com/clevergo/examples
-
-- [**Basic Usages**](https://github.com/clevergo/examples/tree/master/basic)
-- [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)
-- [**WebSocket**](https://github.com/clevergo/examples/tree/master/websocket)
-- [**Session**](https://github.com/clevergo/examples/tree/master/session)
-- [**Restful API**](https://github.com/clevergo/examples/tree/master/rest)
-- [**CSRF Protection**](https://github.com/clevergo/examples/tree/master/csrf)
-- [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)
-- [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)
-
-# Relevant Projects
-Most of packages can be found at https://github.com/clevergo
+### Relevant Projects
+Most of packages can be found at https://github.com/clevergo.
 
 - [**fasthttp**](https://github.com/valyala/fasthttp)
+
+- [**middlewares**](https://github.com/clevergo/middlewares)
+    CleverGo middlewares.
+
 - [**router**](https://github.com/clevergo/router)
+
 - [**websocket**](https://github.com/clevergo/websocket)
+
 - [**sessions**](https://github.com/clevergo/sessions)
+
 - [**captcha**](https://github.com/clevergo/captcha)
+
 - [**csrf**](https://github.com/clevergo/csrf)
+
 - [**jwt**](https://github.com/clevergo/jwt)
+
 - [**mustache**](https://github.com/clevergo/mustache)
+
 - [**utils**](https://github.com/clevergo/utils)
+
