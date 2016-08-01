@@ -8,9 +8,9 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
-	"github.com/buaazp/fasthttprouter"
 	"github.com/clevergo/jwt"
 	"github.com/clevergo/mustache"
+	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 )
@@ -18,12 +18,12 @@ import (
 type Context struct {
 	router *Router
 	*fasthttp.RequestCtx
-	RouterParams *fasthttprouter.Params
+	RouterParams *router.Params
 	Session      *sessions.Session
 	Token        *jwt.Token // JSON WEB TOKEN
 }
 
-func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *fasthttprouter.Params) *Context {
+func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Context {
 	return &Context{
 		router:       r,
 		RequestCtx:   ctx,
@@ -92,9 +92,9 @@ func (ctx *Context) XML(v interface{}, headers ...string) {
 	ctx.Response.SetBody(bytes)
 }
 
-func (ctx *Context) XMLWithCode(code int, v interface{}, header string) {
+func (ctx *Context) XMLWithCode(code int, v interface{}, headers ...string) {
 	ctx.Response.SetStatusCode(code)
-	ctx.XML(v, header)
+	ctx.XML(v, headers...)
 }
 
 func (ctx *Context) HTML(body string) {

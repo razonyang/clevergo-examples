@@ -5,20 +5,20 @@
 package clevergo
 
 import (
-	"github.com/buaazp/fasthttprouter"
+	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 )
 
 type Router struct {
-	*fasthttprouter.Router
+	*router.Router
 	middlewares  []Middleware
 	sessionStore sessions.Store
 }
 
 func NewRouter() *Router {
 	return &Router{
-		Router:      fasthttprouter.New(),
+		Router:      router.New(),
 		middlewares: make([]Middleware, 0),
 	}
 }
@@ -67,12 +67,12 @@ func (r *Router) Handle(method, path string, handler Handler) {
 	r.Router.Handle(method, path, r.getHandler(handler))
 }
 
-func (r *Router) getHandler(handler Handler) fasthttprouter.Handle {
+func (r *Router) getHandler(handler Handler) router.Handle {
 	for i := len(r.middlewares) - 1; i >= 0; i-- {
 		handler = r.middlewares[i].Handle(handler)
 	}
 
-	return func(_ctx *fasthttp.RequestCtx, ps fasthttprouter.Params) {
+	return func(_ctx *fasthttp.RequestCtx, ps router.Params) {
 		ctx := NewContext(r, _ctx, &ps)
 		handler.Handle(ctx)
 	}
@@ -119,7 +119,7 @@ func (r *Router) RegisterController(route string, c ControllerInterface) {
 			_handler = r.middlewares[i].Handle(_handler)
 		}
 		// Add to route.
-		r.Router.Handle(method, route, func(_ctx *fasthttp.RequestCtx, ps fasthttprouter.Params) {
+		r.Router.Handle(method, route, func(_ctx *fasthttp.RequestCtx, ps router.Params) {
 			ctx := NewContext(r, _ctx, &ps)
 			_handler.Handle(ctx)
 		})
