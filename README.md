@@ -37,8 +37,8 @@ More examples can be found at https://github.com/clevergo/examples.
 | **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
 
 ### Documentation
-- [**English**](https://github.com/clevergo/docs/en)
-- [**中文**](https://github.com/clevergo/docs/zh)
+- [**English**](https://github.com/clevergo/docs/tree/master/en)
+- [**中文**](https://github.com/clevergo/docs/tree/master/zh)
 
 ### Relevant Projects
 Most of packages can be found at https://github.com/clevergo.
