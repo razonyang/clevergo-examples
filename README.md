@@ -20,13 +20,13 @@ and it's architecture is very simple and no reflect, so it runs fast.
 
 | Name                 | Description                                   | Usage                                                                  |
 | :---                 | :---------------------------------------------| :----------------------------------------------------------------------|
-| **Middleware**       | Middleware                                    | [**Middleware**](https://github.com/clevergo/examples/middleware)      |
-| **Websocket**        | Websocket                                     | [**Websocket**](https://github.com/clevergo/examples/websocket)        |
-| **Session**          | Session                                       | [**Session**](https://github.com/clevergo/examples/session)            |
-| **RESTFUL API**      | RESTFUL API                                   | [**Restful API**](https://github.com/clevergo/examples/rest)           |
-| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Protection**](https://github.com/clevergo/examples/csrf)       |
-| **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/captcha)            |
-| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/jwt)         |
+| **Middleware**       | Middleware                                    | [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)      |
+| **Websocket**        | Websocket                                     | [**Websocket**](https://github.com/clevergo/examples/tree/master/websocket)        |
+| **Session**          | Session                                       | [**Session**](https://github.com/clevergo/examples/tree/master/session)            |
+| **RESTFUL API**      | RESTFUL API                                   | [**Restful API**](https://github.com/clevergo/examples/tree/master/rest)           |
+| **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Protection**](https://github.com/clevergo/examples/tree/master/csrf)       |
+| **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)            |
+| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
 
 # Benchmark
 See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-framework-benchmark).
@@ -39,14 +39,14 @@ See also [**Go Web Framework Benchmark**](https://github.com/smallnest/go-web-fr
 # Examples
 https://github.com/clevergo/examples
 
-- [**Basic Usages**](https://github.com/clevergo/examples/basic)
-- [**Middleware**](https://github.com/clevergo/examples/middleware)
-- [**WebSocket**](https://github.com/clevergo/examples/websocket)
-- [**Session**](https://github.com/clevergo/examples/session)
-- [**Restful API**](https://github.com/clevergo/examples/rest)
-- [**CSRF Protection**](https://github.com/clevergo/examples/csrf)
-- [**Captcha**](https://github.com/clevergo/examples/captcha)
-- [**JSON WBE TOKEN**](https://github.com/clevergo/examples/jwt)
+- [**Basic Usages**](https://github.com/clevergo/examples/tree/master/basic)
+- [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)
+- [**WebSocket**](https://github.com/clevergo/examples/tree/master/websocket)
+- [**Session**](https://github.com/clevergo/examples/tree/master/session)
+- [**Restful API**](https://github.com/clevergo/examples/tree/master/rest)
+- [**CSRF Protection**](https://github.com/clevergo/examples/tree/master/csrf)
+- [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)
+- [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)
 
 # Relevant Projects
 Most of packages can be found at https://github.com/clevergo
