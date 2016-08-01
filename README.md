@@ -27,7 +27,7 @@ More examples can be found at https://github.com/clevergo/examples.
 
 | Name                 | Description                                   | Usage                                                                              |
 | :---                 | :---------------------------------------------| :----------------------------------------------------------------------------------|
-| **Basic Usage**      | Basic Usgae                                   | [**Middleware**](https://github.com/clevergo/examples/tree/master/basic)           |
+| **Basic Usage**      | Basic Usage                                   | [**Basic Usage**](https://github.com/clevergo/examples/tree/master/basic)          |
 | **Middleware**       | Middleware                                    | [**Middleware**](https://github.com/clevergo/examples/tree/master/middleware)      |
 | **Websocket**        | Websocket                                     | [**Websocket**](https://github.com/clevergo/examples/tree/master/websocket)        |
 | **Session**          | Session                                       | [**Session**](https://github.com/clevergo/examples/tree/master/session)            |
