@@ -27,29 +27,29 @@ func (c Controller) Handle(next Handler) Handler {
 }
 
 func (c Controller) DELETE(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) GET(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) HEAD(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) OPTIONS(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) PATCH(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) POST(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
 
 func (c Controller) PUT(ctx *Context) {
-	ctx.ResponseForbidden()
+	ctx.NotFound()
 }
