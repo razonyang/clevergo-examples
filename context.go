@@ -58,7 +58,7 @@ func (ctx *Context) GetSession() {
 }
 
 func (ctx *Context) SaveSession() error {
-	return ctx.router.sessionStore.Save(ctx.RequestCtx, ctx.Session)
+	return ctx.Session.Save(ctx.RequestCtx)
 }
 
 func (ctx *Context) JSON(v interface{}) {
