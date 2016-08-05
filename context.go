@@ -13,7 +13,14 @@ import (
 	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
+	"sync"
 )
+
+var contextPool = &sync.Pool{
+	New: func() interface{} {
+		return &Context{}
+	},
+}
 
 type Context struct {
 	router *Router
@@ -24,11 +31,26 @@ type Context struct {
 }
 
 func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Context {
+	if context, ok := contextPool.Get().(*Context); ok {
+		context.router = r
+		context.RequestCtx = ctx
+		context.RouterParams = rps
+		return context
+	}
+
 	return &Context{
 		router:       r,
 		RequestCtx:   ctx,
 		RouterParams: rps,
 	}
+}
+
+func (ctx *Context) Close() {
+	ctx.RouterParams = nil
+	ctx.RequestCtx = nil
+	ctx.Session = nil
+	ctx.Token = nil
+	contextPool.Put(ctx)
 }
 
 func (ctx *Context) GetSession() {

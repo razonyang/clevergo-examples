@@ -74,6 +74,7 @@ func (r *Router) getHandler(handler Handler) router.Handle {
 
 	return func(_ctx *fasthttp.RequestCtx, ps router.Params) {
 		ctx := NewContext(r, _ctx, &ps)
+		defer ctx.Close()
 		handler.Handle(ctx)
 	}
 }
@@ -121,6 +122,7 @@ func (r *Router) RegisterController(route string, c ControllerInterface) {
 		// Add to route.
 		r.Router.Handle(method, route, func(_ctx *fasthttp.RequestCtx, ps router.Params) {
 			ctx := NewContext(r, _ctx, &ps)
+			defer ctx.Close()
 			_handler.Handle(ctx)
 		})
 	}
