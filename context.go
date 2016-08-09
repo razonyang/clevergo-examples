@@ -9,7 +9,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/clevergo/jwt"
-	"github.com/clevergo/mustache"
 	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
@@ -135,12 +134,4 @@ func (ctx *Context) Text(a ...interface{}) {
 
 func (ctx *Context) Textf(format string, a ...interface{}) {
 	fmt.Fprintf(ctx, format, a...)
-}
-
-func (ctx *Context) Render(file string, args ...interface{}) {
-	ctx.HTML(mustache.RenderFile(file, args...))
-}
-
-func (ctx *Context) RenderInLayout(filename string, layoutFile string, args ...interface{}) {
-	ctx.HTML(mustache.RenderFileInLayout(filename, layoutFile, args...))
 }
