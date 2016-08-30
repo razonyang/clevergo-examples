@@ -9,9 +9,7 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 [**sessions**](https://github.com/clevergo/sessions), 
 [**captcha**](https://github.com/clevergo/captcha), 
 [**csrf**](https://github.com/clevergo/csrf), 
-[**jwt**](https://github.com/clevergo/jwt), 
-[**mustache**](https://github.com/clevergo/mustache)
-
+[**jwt**](https://github.com/clevergo/jwt)
 ### Actual Applications
 - [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
 
