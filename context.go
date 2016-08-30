@@ -60,6 +60,13 @@ func (ctx *Context) SaveSession() error {
 	return ctx.Session.Save(ctx.RequestCtx)
 }
 
+func (ctx *Context) Logger() fasthttp.Logger {
+	if ctx.router.logger != nil {
+		return ctx.router.logger
+	}
+	return ctx.RequestCtx.Logger()
+}
+
 func (ctx *Context) JSON(v interface{}) {
 	json, err := json.Marshal(v)
 	if err != nil {

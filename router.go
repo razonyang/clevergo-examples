@@ -14,6 +14,7 @@ type Router struct {
 	*router.Router
 	middlewares  []Middleware
 	sessionStore sessions.Store
+	logger       fasthttp.Logger
 }
 
 func NewRouter() *Router {
@@ -25,6 +26,10 @@ func NewRouter() *Router {
 
 func (r *Router) SetSessionStore(store sessions.Store) {
 	r.sessionStore = store
+}
+
+func (r *Router) SetLogger(logger fasthttp.Logger) {
+	r.logger = logger
 }
 
 func (r *Router) SetMiddlewares(middlewares []Middleware) {
