@@ -2,8 +2,7 @@
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go(go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
-**CleverGo** itself does not provide built-in complex functionality and configuration,
-but some common features and components can be found at [https://github.com/clevergo](https://github.com/clevergo).
+Some common features and components can be found at [https://github.com/clevergo](https://github.com/clevergo).
 
 Such as: [**websocket**](https://github.com/clevergo/websocket), 
 [**sessions**](https://github.com/clevergo/sessions), 
@@ -43,38 +42,7 @@ CleverGo's architecture is very simple, such as the [**Middleware**](middleware.
 We provides some examples below, see also [**Examples**](https://github.com/clevergo/examples).
 
 - **Multiple Domains**
-```
-package main
-
-import (
-	"github.com/headwindfly/clevergo"
-)
-
-func hello1(ctx *clevergo.Context) {
-	ctx.HTML("hello1")
-}
-
-func hello2(ctx *clevergo.Context) {
-	ctx.HTML("hello2")
-}
-
-func main() {
-	// Create a application instance.
-	app := clevergo.NewApplication()
-
-	// Create a router instance.
-	router1 := clevergo.NewRouter()
-	router2 := clevergo.NewRouter()
-
-	router1.GET("/", clevergo.HandlerFunc(hello1)) // router1 will be set as default router.
-	router2.GET("/", clevergo.HandlerFunc(hello2))
-
-	app.AddRouter("clevergo.dev", router1)
-	app.AddRouter("user.clevergo.dev", router2)
-
-	app.Run()
-}
-```
+See also [Application example](examples/application)
 
 - **Components and examples**
 
