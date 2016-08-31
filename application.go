@@ -51,8 +51,8 @@ func (a *Application) AddRouter(domain string, r *Router) {
 	}
 	a.routers[domain] = r
 
-	// Set the current router as default, if the default router is empty.
-	if a.defaultRouter == nil {
+	// Set the current router as default, if the domain is an empty string.
+	if len(domain) == 0 {
 		a.defaultRouter = r
 	}
 }
