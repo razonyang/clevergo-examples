@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
-	"github.com/clevergo/jwt"
 	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
@@ -26,7 +25,6 @@ type Context struct {
 	*fasthttp.RequestCtx
 	RouterParams *router.Params
 	Session      *sessions.Session
-	Token        *jwt.Token // JSON WEB TOKEN
 }
 
 func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Context {
@@ -48,7 +46,6 @@ func (ctx *Context) Close() {
 	ctx.RouterParams = nil
 	ctx.RequestCtx = nil
 	ctx.Session = nil
-	ctx.Token = nil
 	contextPool.Put(ctx)
 }
 
