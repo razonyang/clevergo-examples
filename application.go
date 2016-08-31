@@ -21,8 +21,9 @@ type Application struct {
 
 func NewApplication() *Application {
 	return &Application{
-		routers: make(map[string]*Router, 0),
-		Config:  NewConfig(),
+		defaultRouter: NewRouter(),
+		routers:       make(map[string]*Router, 0),
+		Config:        NewConfig(),
 	}
 }
 
