@@ -64,13 +64,29 @@ func (ctx *Context) Logger() fasthttp.Logger {
 	return ctx.RequestCtx.Logger()
 }
 
+func (ctx *Context) SetContentTypeToHTML() {
+	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+}
+
+func (ctx *Context) SetContentTypeToJSON() {
+	ctx.Response.Header.Set("Content-Type", "application/json; charset=utf-8")
+}
+
+func (ctx *Context) SetContentTypeToJSONP() {
+	ctx.Response.Header.Set("Content-Type", "application/javascript; charset=utf-8")
+}
+
+func (ctx *Context) SetContentTypeToXML() {
+	ctx.Response.Header.Set("Content-Type", "application/xml; charset=utf-8")
+}
+
 func (ctx *Context) JSON(v interface{}) {
 	json, err := json.Marshal(v)
 	if err != nil {
 		fmt.Fprint(ctx, err.Error())
 		return
 	}
-	ctx.Response.Header.Set("Content-Type", "application/json; charset=utf-8")
+	ctx.SetContentTypeToJSON()
 	ctx.Response.SetBody(json)
 }
 
@@ -85,7 +101,7 @@ func (ctx *Context) JSONP(v interface{}, callback []byte) {
 		fmt.Fprint(ctx, err.Error())
 		return
 	}
-	ctx.Response.Header.Set("Content-Type", "application/javascript; charset=utf-8")
+	ctx.SetContentTypeToJSONP()
 	jsonp := append(callback, "("...)
 	jsonp = append(jsonp, json...)
 	jsonp = append(jsonp, ")"...)
@@ -113,7 +129,7 @@ func (ctx *Context) XML(v interface{}, headers ...string) {
 	bytes = append(bytes, header...)
 	bytes = append(bytes, xmlBytes...)
 
-	ctx.Response.Header.Set("Content-Type", "application/xml; charset=utf-8")
+	ctx.SetContentTypeToXML()
 	ctx.Response.SetBody(bytes)
 }
 
@@ -123,7 +139,7 @@ func (ctx *Context) XMLWithCode(code int, v interface{}, headers ...string) {
 }
 
 func (ctx *Context) HTML(body string) {
-	ctx.Response.Header.Set("Content-Type", "text/html; charset=utf-8")
+	ctx.SetContentTypeToHTML()
 	ctx.Response.SetBodyString(body)
 }
 
