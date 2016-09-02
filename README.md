@@ -1,7 +1,15 @@
 # CleverGo
-**CleverGo** is a **simple**, **high performance** and **secure** web framework for Go(go programing language).
+**CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
+1. [**Introduction**](#introduction)
+2. [**Documentation**](#documentation)
+3. [**Features**](#features)
+4. [**Examples**](#examples)
+5. [**Contribution**](#contribution)
+6. [**Relevant Packages**](#relevant-packages)
+
+### Introduction
 Some common features and components can be found at [https://github.com/clevergo](https://github.com/clevergo).
 
 Such as: [**websocket**](https://github.com/clevergo/websocket), 
@@ -9,15 +17,6 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 [**captcha**](https://github.com/clevergo/captcha), 
 [**csrf**](https://github.com/clevergo/csrf), 
 [**jwt**](https://github.com/clevergo/jwt)
-### Actual Applications
-- [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
-
-    1. [Frontend Application](https://headwindfly.com): https://headwindfly.com 
-    2. [Backend Application](http://backend.headwindfly.com): http://backend.headwindfly.com 
-
-**How to add my application?**
-
-Fork and added your application in **README.md** and then send pull request.
 
 ### Documentation
 - [**English**](https://github.com/clevergo/docs/tree/master/en)
@@ -44,9 +43,7 @@ We provides some examples below, see also [**Examples**](https://github.com/clev
 - **Multiple Domains**
 See also [Application example](examples/application)
 
-- **Components and examples**
-
-More examples can be found at https://github.com/clevergo/examples.
+### Examples
 
 | Name                 | Description                                   | Usage                                                                              |
 | :---                 | :---------------------------------------------| :----------------------------------------------------------------------------------|
@@ -57,10 +54,12 @@ More examples can be found at https://github.com/clevergo/examples.
 | **RESTFUL API**      | RESTFUL API                                   | [**Restful API**](https://github.com/clevergo/examples/tree/master/rest)           |
 | **CSRF Middleware**  | CSRF attack protection                        | [**CSRF Protection**](https://github.com/clevergo/examples/tree/master/csrf)       |
 | **Captcha**          | Captcha                                       | [**Captcha**](https://github.com/clevergo/examples/tree/master/captcha)            |
-| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](https://github.com/clevergo/examples/tree/master/jwt)         |
+| **JSON WEB TOKEN**   | JSON WEB TOKEN                                | [**JSON WBE TOKEN**](examples/jwt)                                                 |
+
+More examples can be found at [Examples](examples) or https://github.com/clevergo/examples.
 
 
-### How to contribution
+### Contribution
 1. Fork this repository.
 2. Added your code on your repository.
 3. Send pull request.
@@ -68,7 +67,7 @@ More examples can be found at https://github.com/clevergo/examples.
 **I am willing to accept any pull requests and advises.**
 
 
-### Relevant Projects
+### Relevant Packages
 Most of packages can be found at https://github.com/clevergo.
 
 - [**fasthttp**](https://github.com/valyala/fasthttp)
@@ -81,3 +80,16 @@ Most of packages can be found at https://github.com/clevergo.
 - [**jwt**](https://github.com/clevergo/jwt)
 - [**mustache**](https://github.com/clevergo/mustache)
 - [**utils**](https://github.com/clevergo/utils)
+
+
+### Actual Applications
+- [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
+
+    1. [Frontend Application](https://headwindfly.com): https://headwindfly.com 
+    2. [Backend Application](http://backend.headwindfly.com): http://backend.headwindfly.com 
+
+**How to add my application?**
+
+Fork and added your application in **README.md** and then send pull request.
+
+[Back to top](#clevergo)
