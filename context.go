@@ -9,7 +9,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/clevergo/router"
-	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 	"sync"
 )
@@ -24,12 +23,10 @@ type Context struct {
 	router *Router
 	*fasthttp.RequestCtx
 	RouterParams *router.Params
-	Session      *sessions.Session
 }
 
 func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Context {
 	if context, ok := contextPool.Get().(*Context); ok {
-		context.router = r
 		context.RequestCtx = ctx
 		context.RouterParams = rps
 		return context
@@ -45,16 +42,7 @@ func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Contex
 func (ctx *Context) Close() {
 	ctx.RouterParams = nil
 	ctx.RequestCtx = nil
-	ctx.Session = nil
 	contextPool.Put(ctx)
-}
-
-func (ctx *Context) GetSession() {
-	ctx.Session, _ = ctx.router.sessionStore.Get(ctx.RequestCtx, "GOSESSION")
-}
-
-func (ctx *Context) SaveSession() error {
-	return ctx.Session.Save(ctx.RequestCtx)
 }
 
 func (ctx *Context) Logger() fasthttp.Logger {
