@@ -2,17 +2,7 @@
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
-1. [**Introduction**](#introduction)
-2. [**Documentation**](#documentation)
-3. [**Features**](#features)
-4. [**Examples**](#examples)
-5. [**Contribution**](#contribution)
-6. [**Relevant Packages**](#relevant-packages)
-
-### Introduction
 Some common features and components can be found at [https://github.com/clevergo](https://github.com/clevergo).
-
-[Back to top](#readme)
 
 Such as: [**websocket**](https://github.com/clevergo/websocket), 
 [**sessions**](https://github.com/clevergo/sessions), 
@@ -20,13 +10,19 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 [**csrf**](https://github.com/clevergo/csrf), 
 [**jwt**](https://github.com/clevergo/jwt)
 
-[Back to top](#readme)
+1. [**Documentation**](#documentation)
+2. [**Features**](#features)
+3. [**Examples**](#examples)
+4. [**Contribution**](#contribution)
+5. [**Relevant Packages**](#relevant-packages)
+
 
 ### Documentation
 - [**English**](https://github.com/clevergo/docs/tree/master/en)
 - [**中文**](https://github.com/clevergo/docs/tree/master/zh)
 
 [Back to top](#readme)
+
 
 ### Features
 - **High performance**
@@ -47,9 +43,11 @@ CleverGo's architecture is very simple, such as the [**Middleware**](middleware.
 We provides some examples below, see also [**Examples**](https://github.com/clevergo/examples).
 
 - **Multiple Domains**
+
 See also [Application example](examples/application)
 
 [Back to top](#readme)
+
 
 ### Examples
 
@@ -68,10 +66,13 @@ More examples can be found at [Examples](examples) or https://github.com/cleverg
 
 [Back to top](#readme)
 
+
 ### TODO LIST
-1. Added examples.
+1. Perfect the documents and examples.
+2. The next version will be named `v1.1.0`, becaues it breaked some apis of `v1.0.*`
 
 [Back to top](#readme)
+
 
 ### Contribution
 1. Fork this repository.
@@ -81,6 +82,7 @@ More examples can be found at [Examples](examples) or https://github.com/cleverg
 **I am willing to accept any pull requests and advises.**
 
 [Back to top](#readme)
+
 
 ### Relevant Packages
 Most of packages can be found at https://github.com/clevergo.
@@ -97,6 +99,7 @@ Most of packages can be found at https://github.com/clevergo.
 - [**utils**](https://github.com/clevergo/utils)
 
 [Back to top](#readme)
+
 
 ### Actual Applications
 - [**HeadwindFly.com**](https://github.com/headwindfly/headwindfly.com): https://github.com/headwindfly/headwindfly.com
