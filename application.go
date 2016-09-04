@@ -59,10 +59,11 @@ func (a *Application) AddRouter(domain string, r *Router) {
 
 // Get application handler.
 //
-// Returns the default router's handler if there is only one router.
+// If there is only one router and it also is the default router,
+// return it's handler.
 // Otherwise, returns the application.Handler.
 func (a *Application) getHandler() func(ctx *fasthttp.RequestCtx) {
-	if len(a.routers) == 1 {
+	if len(a.routers) == 1 && a.routers[0] == a.defaultRouter {
 		return a.defaultRouter.Handler
 	}
 
