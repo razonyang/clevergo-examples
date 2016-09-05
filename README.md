@@ -8,7 +8,10 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 [**sessions**](https://github.com/clevergo/sessions), 
 [**captcha**](https://github.com/clevergo/captcha), 
 [**csrf**](https://github.com/clevergo/csrf), 
-[**jwt**](https://github.com/clevergo/jwt)
+[**jwt**](https://github.com/clevergo/jwt),
+[**pagination**](https://github.com/clevergo/pagination),
+[**i18n**](https://github.com/clevergo/i18n),
+[**assets**](https://github.com/clevergo/assets)
 
 1. [**Documentation**](#documentation)
 2. [**Features**](#features)
@@ -19,8 +22,8 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 
 
 ### Documentation
-- [**English**](https://github.com/clevergo/docs/tree/master/en)
-- [**中文**](https://github.com/clevergo/docs/tree/master/zh)
+- [**English**](docs/en)
+- [**中文**](docs/zh)
 
 [Back to top](#readme)
 
@@ -106,6 +109,9 @@ Most of packages can be found at https://github.com/clevergo.
 - [**csrf**](https://github.com/clevergo/csrf)
 - [**jwt**](https://github.com/clevergo/jwt)
 - [**utils**](https://github.com/clevergo/utils)
+- [**pagination**](https://github.com/clevergo/pagination)
+- [**i18n**](https://github.com/clevergo/i18n)
+- [**assets**](https://github.com/clevergo/assets)
 
 [Back to top](#readme)
 
