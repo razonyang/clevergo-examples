@@ -9,6 +9,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/clevergo/router"
+	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
 	"sync"
 )
@@ -43,6 +44,10 @@ func (ctx *Context) Close() {
 	ctx.RouterParams = nil
 	ctx.RequestCtx = nil
 	contextPool.Put(ctx)
+}
+
+func (ctx *Context) SessionStore() sessions.Store {
+	return ctx.router.sessionStore
 }
 
 func (ctx *Context) Logger() fasthttp.Logger {
