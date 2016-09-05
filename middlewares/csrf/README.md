@@ -14,7 +14,7 @@ About the usages of **sessions** package, please refer to https://github.com/cle
 About the usages of **csrf** package, please refer to https://github.com/clevergo/csrf.
 
 ## Example
-[CSRF Protection Example](https://github.com/headwindfly/clevergo/examples/csrf/main.go)
+[CSRF Protection Example](/examples/csrf/main.go)
 ```
 go run $GOPATH/src/github.com/headwindfly/clevergo/examples/csrf/main.go
 ```

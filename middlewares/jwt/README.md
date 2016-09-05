@@ -8,7 +8,7 @@ go get github.com/clevergo/jwt
 About the usages of **jwt** package, please refer to https://github.com/clevergo/jwt.
 
 ## Example
-[JSON WEB TOKEN Example](https://github.com/headwindfly/clevergo/examples/jwt/main.go)
+[JSON WEB TOKEN Example](/examples/jwt/main.go)
 ```
 go run $GOPATH/src/github.com/headwindfly/clevergo/examples/jwt/main.go
 ```
