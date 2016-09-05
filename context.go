@@ -24,10 +24,12 @@ type Context struct {
 	router *Router
 	*fasthttp.RequestCtx
 	RouterParams *router.Params
+	Session      *sessions.Session
 }
 
 func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Context {
 	if context, ok := contextPool.Get().(*Context); ok {
+		context.router = r
 		context.RequestCtx = ctx
 		context.RouterParams = rps
 		return context
@@ -41,8 +43,7 @@ func NewContext(r *Router, ctx *fasthttp.RequestCtx, rps *router.Params) *Contex
 }
 
 func (ctx *Context) Close() {
-	ctx.RouterParams = nil
-	ctx.RequestCtx = nil
+	ctx.Session = nil
 	contextPool.Put(ctx)
 }
 
