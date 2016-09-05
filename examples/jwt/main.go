@@ -72,7 +72,7 @@ var (
 				resultEle.value = 'Pending';
 				xmlHttp = new XMLHttpRequest();
     				xmlHttp.open("POST", url);
-				xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");4
+				xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 				if (type == 1) {
 					typeText = "POST FORM"
 					xmlHttp.send(formatParams({"{{ .Key }}":token}));
