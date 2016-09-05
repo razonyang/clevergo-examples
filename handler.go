@@ -10,6 +10,6 @@ type Handler interface {
 
 type HandlerFunc func(*Context)
 
-func (hf HandlerFunc) Handle(ctx *Context) {
-	hf(ctx)
+func (h HandlerFunc) Handle(ctx *Context) {
+	h(ctx)
 }
