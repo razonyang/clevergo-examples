@@ -15,12 +15,13 @@ var (
 
 		<h4>Requests</h4>
 		<ul>
-			<li><a target="_blank" href="javascript:verifyByPOST('POST');">POST</a></li>
-			<li><a target="_blank" href="javascript:verifyByPOST('DELETE');">DELETE</a></li>
-			<li><a target="_blank" href="javascript:verifyByPOST('PUT');">PUT</a></li>
-			<li><a target="_blank" href="javascript:verifyByPOST('HEAD');">HEAD</a></li>
-			<li><a target="_blank" href="javascript:verifyByPOST('OPTIONS');">OPTIONS</a></li>
-			<li><a target="_blank" href="javascript:verifyByPOST('PATCH');">PATCH</a></li>
+			<li><a target="_blank" href="javascript:get();">GET</a></li>
+			<li><a target="_blank" href="javascript:post('POST');">POST</a></li>
+			<li><a target="_blank" href="javascript:post('DELETE');">DELETE</a></li>
+			<li><a target="_blank" href="javascript:post('PUT');">PUT</a></li>
+			<li><a target="_blank" href="javascript:post('HEAD');">HEAD</a></li>
+			<li><a target="_blank" href="javascript:post('OPTIONS');">OPTIONS</a></li>
+			<li><a target="_blank" href="javascript:post('PATCH');">PATCH</a></li>
 		</ul>
 
 		<h4>Result:</h4>
@@ -29,9 +30,20 @@ var (
 
 		<script>
 			var resultEle = document.getElementById("result");
-			var verifyByPOST = function(type){
+
+			var get = function(){
 				resultEle.value = 'Pending';
-				var url = '/';
+				xmlHttp = new XMLHttpRequest();
+    				xmlHttp.open("GET", '/users');
+    				xmlHttp.send(null);
+    				xmlHttp.onreadystatechange = function () {
+        				resultEle.value = "GET: " + xmlHttp.responseText;
+    				}
+			}
+
+			var post = function(type){
+				resultEle.value = 'Pending';
+				var url = '/users';
 				switch(type){
 					case 'POST':
 						break;
@@ -115,8 +127,7 @@ func (c UserController) Handle(next clevergo.Handler) clevergo.Handler {
 }
 
 func (c UserController) GET(ctx *clevergo.Context) {
-	ctx.SetContentTypeToHTML()
-	tpl.Execute(ctx, nil)
+	ctx.Text("GET REQUEST.\n")
 }
 
 func (c UserController) POST(ctx *clevergo.Context) {
@@ -143,6 +154,11 @@ func (c UserController) HEAD(ctx *clevergo.Context) {
 	ctx.Text("HEAD REQUEST.\n")
 }
 
+func index(ctx *clevergo.Context) {
+	ctx.SetContentTypeToHTML()
+	tpl.Execute(ctx, nil)
+}
+
 func main() {
 	app := clevergo.NewApplication()
 
@@ -151,7 +167,8 @@ func main() {
 	app.AddRouter("", router)
 
 	// Register route handler.
-	router.RegisterController("/", NewUserController())
+	router.GET("/", clevergo.HandlerFunc(index))
+	router.RegisterController("/users", NewUserController())
 
 	// Start server.
 	app.Run()
