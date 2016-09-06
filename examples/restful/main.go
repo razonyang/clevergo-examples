@@ -84,7 +84,7 @@ type userController struct {
 	allowMethods string
 }
 
-func NewUserController() userController {
+func newUserController() userController {
 	return userController{
 		allowOrigin:  "*",
 		allowMethods: "GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD",
@@ -168,7 +168,7 @@ func main() {
 
 	// Register route handler.
 	router.GET("/", clevergo.HandlerFunc(index))
-	router.RegisterController("/users", NewUserController())
+	router.RegisterController("/users", newUserController())
 
 	// Start server.
 	app.Run()

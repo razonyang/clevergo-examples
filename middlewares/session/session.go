@@ -9,23 +9,23 @@ import (
 )
 
 var (
-	// Default session name.
+	// SessionName is the default session name.
 	SessionName = "GOSESSION"
 )
 
-// Session Middleware
+// SessionMiddleware
 type SessionMiddleware struct {
 	name string // Session name
 }
 
-// Returns Session Middleware instance.
+// Returns SessionMiddleware instance.
 func NewSessionMiddleware(name string) SessionMiddleware {
 	return SessionMiddleware{
 		name: name,
 	}
 }
 
-// Session Middleware Handler.
+// SessionMiddleware Handler.
 //
 // Implemented Middleware Interface.
 func (m SessionMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
