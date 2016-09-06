@@ -3,7 +3,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/headwindfly/clevergo"
 	"html/template"
 )
@@ -203,7 +202,6 @@ func main() {
 
 	// Register route handler.
 	router.GET("/", clevergo.HandlerFunc(index))
-	fmt.Printf("%v\n", newUserController([]clevergo.Middleware{newAccessControlMiddleware("*", "GET, POST, DELETE, PUT")}))
 	router.RegisterController("/users", newUserController([]clevergo.Middleware{
 		newAccessControlMiddleware("*", "GET, POST, DELETE, PUT"),
 	}))
