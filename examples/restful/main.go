@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/headwindfly/clevergo"
 	"html/template"
 )
@@ -78,28 +79,58 @@ var (
 	tpl = template.Must(template.New("").Parse(html))
 )
 
-type userController struct {
-	clevergo.Controller
-	allowOrigin  string
-	allowMethods string
+// accessControlMiddleware for setting Access-Control-Allow-* into response's header.
+type accessControlMiddleware struct {
+	origin  string
+	methods string
 }
 
-func newUserController() userController {
-	return userController{
-		allowOrigin:  "*",
-		allowMethods: "GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD",
+// newAccessControlMiddleware returns a accessControlMiddleware's instance.
+func newAccessControlMiddleware(origin, methods string) accessControlMiddleware {
+	return accessControlMiddleware{
+		origin:  origin,
+		methods: methods,
 	}
 }
 
-func (c userController) Handle(next clevergo.Handler) clevergo.Handler {
+// Handle implemented the Middleware interface.
+func (m accessControlMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
-		// Do anything what you want.
-		ctx.Text("Prepare.\n")
-
 		// Set Access-Control-Allow-Origin and Access-Control-Allow-Methods for ajax request.
-		ctx.Response.Header.Set("Access-Control-Allow-Origin", c.allowOrigin)
-		ctx.Response.Header.Set("Access-Control-Allow-Methods", c.allowMethods)
+		ctx.Response.Header.Set("Access-Control-Allow-Origin", m.origin)
+		ctx.Response.Header.Set("Access-Control-Allow-Methods", m.methods)
 
+		next.Handle(ctx)
+	})
+}
+
+type userController struct {
+	middlewares []clevergo.Middleware // middlewares for this controller.
+	handler     clevergo.Handler      // for cache the handler.
+}
+
+func newUserController(middlewares []clevergo.Middleware) userController {
+	return userController{
+		middlewares: middlewares,
+	}
+}
+
+// getHandler is the most important method.
+// It made the final handler be wrapped by the middlewares.
+func (c userController) getHandler(next clevergo.Handler) clevergo.Handler {
+	if c.handler == nil {
+		c.handler = clevergo.HandlerFunc(c.handle(next))
+		for i := len(c.middlewares) - 1; i >= 0; i-- {
+			c.handler = c.middlewares[i].Handle(c.handler)
+		}
+	}
+
+	return c.handler
+}
+
+// handle the final handler.
+func (c userController) handle(next clevergo.Handler) clevergo.HandlerFunc {
+	return func(ctx *clevergo.Context) {
 		// Using param named '_method' to simulate the other request, such as PUT, DELETE etc.
 		if !ctx.IsGet() {
 			switch string(ctx.FormValue("_method")) {
@@ -121,9 +152,13 @@ func (c userController) Handle(next clevergo.Handler) clevergo.Handler {
 			}
 		}
 
-		// Invoke the request handler.
 		next.Handle(ctx)
-	})
+	}
+}
+
+// Handle implemented the Middleware interface.
+func (c userController) Handle(next clevergo.Handler) clevergo.Handler {
+	return c.getHandler(next)
 }
 
 func (c userController) GET(ctx *clevergo.Context) {
@@ -168,7 +203,10 @@ func main() {
 
 	// Register route handler.
 	router.GET("/", clevergo.HandlerFunc(index))
-	router.RegisterController("/users", newUserController())
+	fmt.Printf("%v\n", newUserController([]clevergo.Middleware{newAccessControlMiddleware("*", "GET, POST, DELETE, PUT")}))
+	router.RegisterController("/users", newUserController([]clevergo.Middleware{
+		newAccessControlMiddleware("*", "GET, POST, DELETE, PUT"),
+	}))
 
 	// Start server.
 	app.Run()
