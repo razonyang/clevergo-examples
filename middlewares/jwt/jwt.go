@@ -13,14 +13,13 @@ const (
 )
 
 var (
-	bearer     = []byte("BEARER ")
 	errHandler = func(ctx *clevergo.Context) {
 		ctx.SetStatusCode(fasthttp.StatusUnauthorized)
 	}
 	successHandler = func(ctx *clevergo.Context, token *jwt.Token) {}
 )
 
-// JWT Middleware
+// JWTMiddleware JSON WEB TOKEN Middleware.
 type JWTMiddleware struct {
 	jwt            *jwt.JWT
 	key            string
@@ -28,7 +27,7 @@ type JWTMiddleware struct {
 	successHandler func(ctx *clevergo.Context, token *jwt.Token)
 }
 
-// Returns JWT Middleware instance.
+// NewJWTMiddleware returns JWT Middleware instance.
 func NewJWTMiddleware(jwt *jwt.JWT) JWTMiddleware {
 	return JWTMiddleware{
 		jwt:            jwt,
@@ -38,29 +37,27 @@ func NewJWTMiddleware(jwt *jwt.JWT) JWTMiddleware {
 	}
 }
 
-// Returns key.
+// Key returns key.
 func (m JWTMiddleware) Key() string {
 	return m.key
 }
 
-// Set key.
+// SetKey for setting key.
 func (m *JWTMiddleware) SetKey(key string) {
 	m.key = key
 }
 
-// Set Error Handler.
+// SetErrorHandler for setting error handler.
 func (m *JWTMiddleware) SetErrorHandler(handler clevergo.HandlerFunc) {
 	m.errorHandler = handler
 }
 
-// Set Success Handler.
+// SetSuccessHandler for setting success handler.
 func (m *JWTMiddleware) SetSuccessHandler(handler func(ctx *clevergo.Context, token *jwt.Token)) {
 	m.successHandler = handler
 }
 
-// JWT Middleware Handler.
-//
-// Implemented Middleware Interface.
+// Handle implemented Middleware Interface.
 func (m JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// Try to get JWT raw token from request form.

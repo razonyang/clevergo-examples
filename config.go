@@ -3,14 +3,18 @@ package clevergo
 import "os"
 
 const (
-	serverDefaultAddr  = ":8080"
-	ServerTypeDefault  = 1 // HTTP Application.
-	ServerTypeUNIX     = 2 // UNIX Application.
-	ServerTypeTLS      = 3 // TLS Application.
-	ServerTypeTLSEmbed = 4 // TLSEmbed Application.
+	serverDefaultAddr = ":8080"
+	// ServerTypeDefault means HTTP Application.
+	ServerTypeDefault = 1
+	// ServerTypeUNIX means UNIX Application.
+	ServerTypeUNIX = 2
+	// ServerTypeTLS means TLS Application.
+	ServerTypeTLS = 3
+	// ServerTypeTLSEmbed means TLSEmbed Application.
+	ServerTypeTLSEmbed = 4
 )
 
-// Application configuration.
+// Config for Application.
 type Config struct {
 	ServerAddr     string      // Server address.
 	ServerType     int         // Server type.
@@ -21,7 +25,7 @@ type Config struct {
 	ServerKeyData  []byte      // KeyData  for TLSEmbed application.
 }
 
-// Returns default configuration.
+// NewConfig returns default configuration.
 func NewConfig() *Config {
 	return &Config{
 		ServerAddr:     serverDefaultAddr,
@@ -31,17 +35,17 @@ func NewConfig() *Config {
 	}
 }
 
-// Returns a boolean indicating whether is UNIX Application.
+// IsServeUNIX returns a boolean indicating whether is UNIX Application.
 func (c *Config) IsServeUNIX() bool {
 	return c.ServerType == ServerTypeUNIX
 }
 
-// Returns a boolean indicating whether is TLS Application.
+// IsServeTLS returns a boolean indicating whether is TLS Application.
 func (c *Config) IsServeTLS() bool {
 	return c.ServerType == ServerTypeTLS
 }
 
-// Returns a boolean indicating whether is TLSEmbed Application.
+// IsServeTLSEmbed returns a boolean indicating whether is TLSEmbed Application.
 func (c *Config) IsServeTLSEmbed() bool {
 	return c.ServerType == ServerTypeTLSEmbed
 }

@@ -12,10 +12,10 @@ import (
 )
 
 const (
-	// CleverGo Version.
+	// Version of CleverGo.
 	Version = "1.1.1"
 
-	// CleverGo Logo.
+	// Logo of CleverGo.
 	Logo = `  ____ _     _______     _______ ____   ____  ___
  / ___| |   | ____\ \   / / ____|  _ \ / ___|/ _ \
 | |   | |   |  _|  \ \ / /|  _| | |_) | |  _| | | |
@@ -27,25 +27,25 @@ func info() {
 	fmt.Printf("\x1b[36;1m%s %s\x1b[0m\n\n\x1b[32;1mStarted at %s\x1b[0m\n", Logo, Version, time.Now())
 }
 
-// ListenAndServe
+// ListenAndServe is a alias of fasthttp.ListenAndServe.
 func ListenAndServe(addr string, handler fasthttp.RequestHandler) error {
 	info()
 	return fasthttp.ListenAndServe(addr, handler)
 }
 
-// ListenAndServeUNIX
+// ListenAndServeUNIX is a alias of fasthttp.ListenAndServeUNIX.
 func ListenAndServeUNIX(addr string, mode os.FileMode, handler fasthttp.RequestHandler) error {
 	info()
 	return fasthttp.ListenAndServeUNIX(addr, mode, handler)
 }
 
-// ListenAndServeTLS
+// ListenAndServeTLS is a alias of fasthttp.ListenAndServeTLS.
 func ListenAndServeTLS(addr, certFile, keyFile string, handler fasthttp.RequestHandler) error {
 	info()
 	return fasthttp.ListenAndServeTLS(addr, certFile, keyFile, handler)
 }
 
-// ListenAndServeTLSEmbed
+// ListenAndServeTLSEmbed is a alias of fasthttp.ListenAndServeTLSEmbed.
 func ListenAndServeTLSEmbed(addr string, certData, keyData []byte, handler fasthttp.RequestHandler) error {
 	info()
 	return fasthttp.ListenAndServeTLSEmbed(addr, certData, keyData, handler)

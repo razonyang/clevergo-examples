@@ -6,7 +6,7 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-// Router.
+// Router for managing request handlers.
 type Router struct {
 	*router.Router
 	middlewares  []Middleware    // Middlewares.
@@ -14,7 +14,7 @@ type Router struct {
 	logger       fasthttp.Logger // Logger for Context.
 }
 
-// Return a Router's instance.
+// NewRouter returns a Router's instance.
 func NewRouter() *Router {
 	return &Router{
 		Router:      router.New(),
@@ -22,62 +22,62 @@ func NewRouter() *Router {
 	}
 }
 
-// Set session store.
+// SetSessionStore for setting session store.
 func (r *Router) SetSessionStore(store sessions.Store) {
 	r.sessionStore = store
 }
 
-// Set logger.
+// SetLogger for setting logger.
 func (r *Router) SetLogger(logger fasthttp.Logger) {
 	r.logger = logger
 }
 
-// Set middlewares.
+// SetMiddlewares for setting middlewares.
 func (r *Router) SetMiddlewares(middlewares []Middleware) {
 	r.middlewares = middlewares
 }
 
-// Add middlewares.
+// AddMiddleware for adding middleware.
 func (r *Router) AddMiddleware(middleware Middleware) {
 	r.middlewares = append(r.middlewares, middleware)
 }
 
-// Add GET request handler.
+// GET for adding GET request handler.
 func (r *Router) GET(path string, handler Handler) {
 	r.Router.GET(path, r.getHandler(handler))
 }
 
-// Add HEAD request handler.
+// HEAD for adding HEAD request handler.
 func (r *Router) HEAD(path string, handler Handler) {
 	r.Router.HEAD(path, r.getHandler(handler))
 }
 
-// Add OPTIONS request handler.
+// OPTIONS for adding OPTIONS request handler.
 func (r *Router) OPTIONS(path string, handler Handler) {
 	r.Router.OPTIONS(path, r.getHandler(handler))
 }
 
-// Add POST request handler.
+// POST for adding POST request handler.
 func (r *Router) POST(path string, handler Handler) {
 	r.Router.POST(path, r.getHandler(handler))
 }
 
-// Add PUT request handler.
+// PUT for adding PUT request handler.
 func (r *Router) PUT(path string, handler Handler) {
 	r.Router.PUT(path, r.getHandler(handler))
 }
 
-// Add PATCH request handler.
+// PATCH for adding PATCH request handler.
 func (r *Router) PATCH(path string, handler Handler) {
 	r.Router.PATCH(path, r.getHandler(handler))
 }
 
-// Add DELETE request handler.
+// DELETE for adding DELETE request handler.
 func (r *Router) DELETE(path string, handler Handler) {
 	r.Router.DELETE(path, r.getHandler(handler))
 }
 
-// Add custom METHOD request handler.
+// Handle for adding custom METHOD request handler.
 func (r *Router) Handle(method, path string, handler Handler) {
 	r.Router.Handle(method, path, r.getHandler(handler))
 }
@@ -94,7 +94,7 @@ func (r *Router) getHandler(handler Handler) router.Handle {
 	}
 }
 
-// Register Controller.
+// RegisterController.
 //
 // The Controller should implemented the ControllerInterface.
 func (r *Router) RegisterController(route string, c ControllerInterface) {

@@ -31,7 +31,7 @@ var (
 	}
 )
 
-// CSRF Middleware
+// CSRFMiddleware Cross Site Request Forgery Protection Middleware.
 type CSRFMiddleware struct {
 	len          int    // length of token.
 	maskLen      int    // length mask.
@@ -43,7 +43,7 @@ type CSRFMiddleware struct {
 	errorHandler clevergo.HandlerFunc
 }
 
-// Returns CSRF Middleware instance.
+// NewCSRFMiddleware returns CSRF Middleware instance.
 func NewCSRFMiddleware() CSRFMiddleware {
 	return CSRFMiddleware{
 		len:          32,
@@ -57,62 +57,62 @@ func NewCSRFMiddleware() CSRFMiddleware {
 	}
 }
 
-// Return length of the CSRF token.
+// Len returns length of the CSRF token.
 func (m CSRFMiddleware) Len() int {
 	return m.len
 }
 
-// Set token's length.
+// SetLen for setting token's length.
 func (m *CSRFMiddleware) SetLen(len int) {
 	m.len = len
 }
 
-// Returns mask's length.
+// MaskLen returns mask's length.
 func (m CSRFMiddleware) MaskLen() int {
 	return m.maskLen
 }
 
-// Set mask's length.
+// SetMaskLen for setting mask's length.
 func (m *CSRFMiddleware) SetMaskLen(len int) {
 	m.maskLen = len
 }
 
-// Returns key.
+// Key returns key.
 func (m CSRFMiddleware) Key() string {
 	return m.key
 }
 
-// Set key.
+// SetKey for setting key.
 func (m *CSRFMiddleware) SetKey(key string) {
 	m.key = key
 }
 
-// Returns sessionKey.
+// SessionKey returns sessionKey.
 func (m CSRFMiddleware) SessionKey() string {
 	return m.sessionKey
 }
 
-// Set sessionKey.
+// SetSessionKey for setting sessionKey.
 func (m *CSRFMiddleware) SetSessionKey(key string) {
 	m.sessionKey = key
 }
 
-// Returns headerKey.
+// HeaderKey returns headerKey.
 func (m CSRFMiddleware) HeaderKey() string {
 	return m.headerKey
 }
 
-// Set headerKey.
+// SetHeaderKey for setting headerKey.
 func (m *CSRFMiddleware) SetHeaderKey(key string) {
 	m.headerKey = key
 }
 
-// Returns formKey.
+// FormKey returns formKey.
 func (m CSRFMiddleware) FormKey() string {
 	return m.formKey
 }
 
-// Set formKey.
+// SetFormKey for setting formKey.
 func (m *CSRFMiddleware) SetFormKey(key string) {
 	m.formKey = key
 }
@@ -125,13 +125,12 @@ func (m *CSRFMiddleware) SetSafeMethods(methods []string) {
 	}
 }
 
-// Set error handler.
+// SetErrorHandler for setting error handler.
 func (m *CSRFMiddleware) SetErrorHandler(handler clevergo.HandlerFunc) {
 	m.errorHandler = handler
 }
 
-// CSRF Middleware.
-// Implemented the Middleware Interface.
+// Handle implemented the Middleware Interface.
 func (m CSRFMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		trueToken, err := m.tureToken(ctx)
