@@ -15,7 +15,7 @@ var (
 	<head><title>Session Example</title></head>
 	<body>
 		No random number has been set,
-		please navigate to <a target="_blank" href="http://localhost:8080/random">http://localhost:8080/random</a>.
+		please navigate to <a target="_blank" href="/random">here</a>.
 	 	And then reload this page.
 	 </body></html>`))
 )
