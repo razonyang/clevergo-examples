@@ -89,6 +89,7 @@ func (a *Application) getHandler() func(ctx *fasthttp.RequestCtx) {
 	return a.Handler
 }
 
+// Handler returns application' Handler.
 func (a *Application) Handler(ctx *fasthttp.RequestCtx) {
 	host := strings.Split(string(ctx.Host()), ":")
 	if r, ok := a.routers[host[0]]; ok {

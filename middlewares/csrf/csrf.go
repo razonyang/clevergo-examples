@@ -117,7 +117,7 @@ func (m *CSRFMiddleware) SetFormKey(key string) {
 	m.formKey = key
 }
 
-// Set safe methods.
+// SetSafeMethods for set safe methods.
 func (m *CSRFMiddleware) SetSafeMethods(methods []string) {
 	m.safeMethods = map[string]bool{}
 	for i := 0; i < len(methods); i++ {
@@ -166,10 +166,9 @@ func (m CSRFMiddleware) tureToken(ctx *clevergo.Context) ([]byte, error) {
 	token, ok := ctx.Session.Values[m.sessionKey]
 	if !ok || token == nil {
 		return utils.RandomBytes(m.len), errTokenNotExists
-	} else {
-		if v, ok := token.([]byte); ok {
-			return v, nil
-		}
-		return utils.RandomBytes(m.len), errTokenInvalid
 	}
+	if v, ok := token.([]byte); ok {
+		return v, nil
+	}
+	return utils.RandomBytes(m.len), errTokenInvalid
 }

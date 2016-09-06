@@ -94,7 +94,7 @@ func (r *Router) getHandler(handler Handler) router.Handle {
 	}
 }
 
-// RegisterController.
+// RegisterController for registering controller.
 //
 // The Controller should implemented the ControllerInterface.
 func (r *Router) RegisterController(route string, c ControllerInterface) {

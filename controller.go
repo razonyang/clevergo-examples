@@ -1,6 +1,6 @@
 package clevergo
 
-// ControllerInterface.
+// ControllerInterface contains the methods which the Controller should implements.
 //
 // In fact, the controller is a middleware.
 type ControllerInterface interface {
