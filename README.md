@@ -1,4 +1,7 @@
 # CleverGo
+[![Go Report Card](https://goreportcard.com/badge/github.com/headwindfly/clevergo)](https://goreportcard.com/report/github.com/headwindfly/clevergo)
+
+
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
