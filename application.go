@@ -35,6 +35,18 @@ func (a *Application) SetSessionStore(store sessions.Store) {
 	a.sessionStore = store
 }
 
+func (a *Application) NewRouter(domain string) *Router {
+	r := NewRouter()
+	r.sessionStore = a.sessionStore
+	r.logger = a.logger
+	a.routers[domain] = r
+	// Set the current router as default, if the domain is an empty string.
+	if len(domain) == 0 {
+		a.defaultRouter = r
+	}
+	return r
+}
+
 func (a *Application) AddRouter(domain string, r *Router) {
 	// Set default session store.
 	if r.sessionStore == nil {
