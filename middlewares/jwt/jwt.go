@@ -20,6 +20,7 @@ var (
 	successHandler = func(ctx *clevergo.Context, token *jwt.Token) {}
 )
 
+// JWT Middleware
 type JWTMiddleware struct {
 	jwt            *jwt.JWT
 	key            string
@@ -27,6 +28,7 @@ type JWTMiddleware struct {
 	successHandler func(ctx *clevergo.Context, token *jwt.Token)
 }
 
+// Returns JWT Middleware instance.
 func NewJWTMiddleware(jwt *jwt.JWT) JWTMiddleware {
 	return JWTMiddleware{
 		jwt:            jwt,
@@ -36,22 +38,29 @@ func NewJWTMiddleware(jwt *jwt.JWT) JWTMiddleware {
 	}
 }
 
+// Returns key.
 func (m JWTMiddleware) Key() string {
 	return m.key
 }
 
+// Set key.
 func (m *JWTMiddleware) SetKey(key string) {
 	m.key = key
 }
 
+// Set Error Handler.
 func (m *JWTMiddleware) SetErrorHandler(handler clevergo.HandlerFunc) {
 	m.errorHandler = handler
 }
 
+// Set Success Handler.
 func (m *JWTMiddleware) SetSuccessHandler(handler func(ctx *clevergo.Context, token *jwt.Token)) {
 	m.successHandler = handler
 }
 
+// JWT Middleware Handler.
+//
+// Implemented Middleware Interface.
 func (m JWTMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// Try to get JWT raw token from request form.

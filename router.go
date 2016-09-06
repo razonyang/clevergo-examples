@@ -6,13 +6,15 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
+// Router.
 type Router struct {
 	*router.Router
-	middlewares  []Middleware
-	sessionStore sessions.Store
-	logger       fasthttp.Logger
+	middlewares  []Middleware    // Middlewares.
+	sessionStore sessions.Store  // Session store for Context.
+	logger       fasthttp.Logger // Logger for Context.
 }
 
+// Return a Router's instance.
 func NewRouter() *Router {
 	return &Router{
 		Router:      router.New(),
@@ -20,50 +22,62 @@ func NewRouter() *Router {
 	}
 }
 
+// Set session store.
 func (r *Router) SetSessionStore(store sessions.Store) {
 	r.sessionStore = store
 }
 
+// Set logger.
 func (r *Router) SetLogger(logger fasthttp.Logger) {
 	r.logger = logger
 }
 
+// Set middlewares.
 func (r *Router) SetMiddlewares(middlewares []Middleware) {
 	r.middlewares = middlewares
 }
 
+// Add middlewares.
 func (r *Router) AddMiddleware(middleware Middleware) {
 	r.middlewares = append(r.middlewares, middleware)
 }
 
+// Add GET request handler.
 func (r *Router) GET(path string, handler Handler) {
 	r.Router.GET(path, r.getHandler(handler))
 }
 
+// Add HEAD request handler.
 func (r *Router) HEAD(path string, handler Handler) {
 	r.Router.HEAD(path, r.getHandler(handler))
 }
 
+// Add OPTIONS request handler.
 func (r *Router) OPTIONS(path string, handler Handler) {
 	r.Router.OPTIONS(path, r.getHandler(handler))
 }
 
+// Add POST request handler.
 func (r *Router) POST(path string, handler Handler) {
 	r.Router.POST(path, r.getHandler(handler))
 }
 
+// Add PUT request handler.
 func (r *Router) PUT(path string, handler Handler) {
 	r.Router.PUT(path, r.getHandler(handler))
 }
 
+// Add PATCH request handler.
 func (r *Router) PATCH(path string, handler Handler) {
 	r.Router.PATCH(path, r.getHandler(handler))
 }
 
+// Add DELETE request handler.
 func (r *Router) DELETE(path string, handler Handler) {
 	r.Router.DELETE(path, r.getHandler(handler))
 }
 
+// Add custom METHOD request handler.
 func (r *Router) Handle(method, path string, handler Handler) {
 	r.Router.Handle(method, path, r.getHandler(handler))
 }
@@ -80,6 +94,9 @@ func (r *Router) getHandler(handler Handler) router.Handle {
 	}
 }
 
+// Register Controller.
+//
+// The Controller should implemented the ControllerInterface.
 func (r *Router) RegisterController(route string, c ControllerInterface) {
 	handlers := make(map[string]Handler, 0)
 

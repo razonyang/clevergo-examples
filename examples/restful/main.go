@@ -78,20 +78,20 @@ var (
 	tpl = template.Must(template.New("").Parse(html))
 )
 
-type UserController struct {
+type userController struct {
 	clevergo.Controller
 	allowOrigin  string
 	allowMethods string
 }
 
-func NewUserController() UserController {
-	return UserController{
+func NewUserController() userController {
+	return userController{
 		allowOrigin:  "*",
 		allowMethods: "GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD",
 	}
 }
 
-func (c UserController) Handle(next clevergo.Handler) clevergo.Handler {
+func (c userController) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// Do anything what you want.
 		ctx.Text("Prepare.\n")
@@ -126,31 +126,31 @@ func (c UserController) Handle(next clevergo.Handler) clevergo.Handler {
 	})
 }
 
-func (c UserController) GET(ctx *clevergo.Context) {
+func (c userController) GET(ctx *clevergo.Context) {
 	ctx.Text("GET REQUEST.\n")
 }
 
-func (c UserController) POST(ctx *clevergo.Context) {
+func (c userController) POST(ctx *clevergo.Context) {
 	ctx.Text("POST REQUEST.\n")
 }
 
-func (c UserController) DELETE(ctx *clevergo.Context) {
+func (c userController) DELETE(ctx *clevergo.Context) {
 	ctx.Text("DELETE REQUEST.\n")
 }
 
-func (c UserController) PUT(ctx *clevergo.Context) {
+func (c userController) PUT(ctx *clevergo.Context) {
 	ctx.Text("PUT REQUEST.\n")
 }
 
-func (c UserController) OPTIONS(ctx *clevergo.Context) {
+func (c userController) OPTIONS(ctx *clevergo.Context) {
 	ctx.Text("OPTIONS REQUEST.\n")
 }
 
-func (c UserController) PATCH(ctx *clevergo.Context) {
+func (c userController) PATCH(ctx *clevergo.Context) {
 	ctx.Text("PATCH REQUEST.\n")
 }
 
-func (c UserController) HEAD(ctx *clevergo.Context) {
+func (c userController) HEAD(ctx *clevergo.Context) {
 	ctx.Text("HEAD REQUEST.\n")
 }
 

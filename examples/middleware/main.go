@@ -11,10 +11,10 @@ import (
 )
 
 // First Middleware
-type FirstMiddleware struct {
+type firstMiddleware struct {
 }
 
-func (fm *FirstMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
+func (fm *firstMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		fmt.Fprint(ctx, "I am First Middleware!\n")
 		// Invoke the next middleware
@@ -23,10 +23,10 @@ func (fm *FirstMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 }
 
 // Second Middleware
-type SecondMiddleware struct {
+type secondMiddleware struct {
 }
 
-func (sm *SecondMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
+func (sm *secondMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		fmt.Fprint(ctx, "I am Second Middleware!\n")
 		// Invoke the next middleware
@@ -35,10 +35,10 @@ func (sm *SecondMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 }
 
 // Filter Middleware
-type FilterMiddleware struct {
+type filterMiddleware struct {
 }
 
-func (fm *FilterMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
+func (fm *filterMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		// If the name is equal to headwindfly, the request will be blocked.
 		if name := ctx.FormValue("name"); len(name) > 0 && string(name) == "headwindfly" {
@@ -69,11 +69,11 @@ func main() {
 	app.AddRouter("", router)
 
 	// Add middleware before registering route's handler.
-	router.AddMiddleware(&FirstMiddleware{})
-	router.AddMiddleware(&SecondMiddleware{})
+	router.AddMiddleware(&firstMiddleware{})
+	router.AddMiddleware(&secondMiddleware{})
 
 	// If the name is equal to headwindfly, the request will be blocked.
-	router.AddMiddleware(&FilterMiddleware{})
+	router.AddMiddleware(&filterMiddleware{})
 
 	// Register route handler.
 	router.GET("/", clevergo.HandlerFunc(middleware))

@@ -7,14 +7,16 @@ import (
 	"strings"
 )
 
+// Application.
 type Application struct {
-	defaultRouter *Router
-	routers       map[string]*Router
-	sessionStore  sessions.Store
-	logger        fasthttp.Logger
-	Config        *Config
+	defaultRouter *Router            // default router.
+	routers       map[string]*Router // routers.
+	sessionStore  sessions.Store     // default session store.
+	logger        fasthttp.Logger    // default logger.
+	Config        *Config            // configuration.
 }
 
+// Returns an application's instance.
 func NewApplication() *Application {
 	return &Application{
 		defaultRouter: NewRouter(),
@@ -23,18 +25,24 @@ func NewApplication() *Application {
 	}
 }
 
+// Set default router.
 func (a *Application) SetDefaultRouter(r *Router) {
 	a.defaultRouter = r
 }
 
+// Set looger.
 func (a *Application) SetLogger(logger fasthttp.Logger) {
 	a.logger = logger
 }
 
+// Set session store.
 func (a *Application) SetSessionStore(store sessions.Store) {
 	a.sessionStore = store
 }
 
+// Returns a new Router's instance.
+//
+// Set the current router as default router if the domain is an empty string.
 func (a *Application) NewRouter(domain string) *Router {
 	r := NewRouter()
 	r.sessionStore = a.sessionStore
@@ -47,6 +55,9 @@ func (a *Application) NewRouter(domain string) *Router {
 	return r
 }
 
+// Add router to application.
+//
+// Set the current router as default router if the domain is an empty string.
 func (a *Application) AddRouter(domain string, r *Router) {
 	// Set default session store.
 	if r.sessionStore == nil {
@@ -88,6 +99,7 @@ func (a *Application) Handler(ctx *fasthttp.RequestCtx) {
 	a.defaultRouter.Handler(ctx)
 }
 
+// Start the application.
 func (a *Application) Run() {
 	if len(a.routers) == 0 {
 		panic("No router.")
