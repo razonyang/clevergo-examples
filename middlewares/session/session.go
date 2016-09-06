@@ -9,25 +9,25 @@ import (
 )
 
 var (
-	// SessionName is the default session name.
+	// SessionName default session name.
 	SessionName = "GOSESSION"
 )
 
 // SessionMiddleware
+//
+// This middleware in order to get session.
 type SessionMiddleware struct {
 	name string // Session name
 }
 
-// Returns SessionMiddleware instance.
+// NewSessionMiddleware returns Session Middleware instance.
 func NewSessionMiddleware(name string) SessionMiddleware {
 	return SessionMiddleware{
 		name: name,
 	}
 }
 
-// SessionMiddleware Handler.
-//
-// Implemented Middleware Interface.
+// Handle implemented Middleware Interface.
 func (m SessionMiddleware) Handle(next clevergo.Handler) clevergo.Handler {
 	return clevergo.HandlerFunc(func(ctx *clevergo.Context) {
 		ctx.Session, _ = ctx.SessionStore().Get(ctx.RequestCtx, m.name)
