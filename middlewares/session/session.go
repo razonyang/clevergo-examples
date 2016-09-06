@@ -13,11 +13,9 @@ var (
 	SessionName = "GOSESSION"
 )
 
-// SessionMiddleware
-//
-// This middleware in order to get session.
+// SessionMiddleware in order to get session.
 type SessionMiddleware struct {
-	name string // Session name
+	name string
 }
 
 // NewSessionMiddleware returns Session Middleware instance.
