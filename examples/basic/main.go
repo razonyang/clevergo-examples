@@ -12,7 +12,7 @@ import (
 	"strconv"
 )
 
-type Project struct {
+type project struct {
 	Name    string `json:"name" xml:"name"`
 	Version string `json:"version" xml:"version"`
 }
@@ -21,7 +21,7 @@ var (
 	helloString   = "Hello CleverGo!"
 	resourcesPath = path.Join(os.Getenv("GOPATH"), "src", "github.com", "headwindfly", "clevergo")
 
-	project = Project{
+	project = project{
 		Name:    "CleverGo",
 		Version: clevergo.Version,
 	}
