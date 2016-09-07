@@ -1,8 +1,12 @@
 language: go
 
 install:
+ - go get github.com/clevergo/captcha
+ - go get github.com/clevergo/csrf
+ - go get github.com/clevergo/jwt
  - go get github.com/clevergo/router
  - go get github.com/clevergo/sessions
+ - go get github.com/clevergo/websocket
  - go get github.com/valyala/fasthttp
 
 go:
