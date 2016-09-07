@@ -7,22 +7,22 @@
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
 
+Because it is a new project, so it have not do more tests, but this task has been added to **TODO LIST**.
+
 Some common features and components can be found at [https://github.com/clevergo](https://github.com/clevergo).
 
 Such as: [**websocket**](https://github.com/clevergo/websocket), 
 [**sessions**](https://github.com/clevergo/sessions), 
 [**captcha**](https://github.com/clevergo/captcha), 
 [**csrf**](https://github.com/clevergo/csrf), 
-[**jwt**](https://github.com/clevergo/jwt),
-[**pagination**](https://github.com/clevergo/pagination),
-[**i18n**](https://github.com/clevergo/i18n),
-[**assets**](https://github.com/clevergo/assets)
+[**jwt**](https://github.com/clevergo/jwt)
 
 1. [**Documentation**](#documentation)
 2. [**Features**](#features)
 3. [**Middlewares**](#middlewares)
 3. [**Examples**](#examples)
 4. [**Contribution**](#contribution)
+5. [**Relevant Packages**](#relevant-packages)
 5. [**Relevant Packages**](#relevant-packages)
 
 
@@ -88,7 +88,7 @@ More examples can be found at [Examples](examples).
 
 ### TODO LIST
 1. Perfect the documents and examples.
-2. The next version will be named `v1.1.0`, becaues it breaked some apis of `v1.0.*`
+2. Add tests.
 
 [Back to top](#readme)
 
