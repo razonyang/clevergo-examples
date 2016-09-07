@@ -21,7 +21,7 @@ var (
 	helloString   = "Hello CleverGo!"
 	resourcesPath = path.Join(os.Getenv("GOPATH"), "src", "github.com", "headwindfly", "clevergo")
 
-	project = project{
+	p = project{
 		Name:    "CleverGo",
 		Version: clevergo.Version,
 	}
@@ -75,11 +75,11 @@ func html(ctx *clevergo.Context) {
 func json(ctx *clevergo.Context) {
 	code, err := getCode(ctx.FormValue("code"))
 	if err == nil {
-		ctx.JSONWithCode(code, project)
+		ctx.JSONWithCode(code, p)
 		return
 	}
 
-	ctx.JSON(project)
+	ctx.JSON(p)
 }
 
 func jsonp(ctx *clevergo.Context) {
@@ -87,21 +87,21 @@ func jsonp(ctx *clevergo.Context) {
 
 	code, err := getCode(ctx.FormValue("code"))
 	if err == nil {
-		ctx.JSONPWithCode(code, project, callback)
+		ctx.JSONPWithCode(code, p, callback)
 		return
 	}
 
-	ctx.JSONP(project, callback)
+	ctx.JSONP(p, callback)
 }
 
 func xml(ctx *clevergo.Context) {
 	code, err := getCode(ctx.FormValue("code"))
 	if err == nil {
-		ctx.XMLWithCode(code, project)
+		ctx.XMLWithCode(code, p)
 		return
 	}
 
-	ctx.XML(project)
+	ctx.XML(p)
 }
 
 func params(ctx *clevergo.Context) {
