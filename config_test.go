@@ -2,6 +2,18 @@ package clevergo
 
 import "testing"
 
+func TestNewConfig(t *testing.T) {
+	c := NewConfig()
+
+	if c.ServerAddr != serverDefaultAddr {
+		t.Errorf("c.ServerAddr = %s, expect %s.", c.ServerAddr, serverDefaultAddr)
+	}
+
+	if c.ServerType != ServerTypeDefault {
+		t.Errorf("c.ServerType = %v, expect %v.", c.ServerType, ServerTypeDefault)
+	}
+}
+
 func TestConfig_IsServeTLS(t *testing.T) {
 	c := Config{
 		ServerType: ServerTypeTLS,
