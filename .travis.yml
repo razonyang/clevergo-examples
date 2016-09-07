@@ -1,8 +1,14 @@
 language: go
 
+install:
+go get github.com/clevergo/router
+go get github.com/clevergo/sessions
+go get github.com/valyala/fasthttp
+
 go:
  - 1.5
  - 1.6
+ - 1.7
  - tip
 
 script:
