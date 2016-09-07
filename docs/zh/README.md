@@ -1,6 +1,5 @@
 # 文档
-文档还在完善当中，不过我们已经提供了完整的例子，这些例子可以让你快速上手CleverGo。
-[例子](/examples)
+文档还在完善当中，不过我们已经提供了完整的例子，这些[例子](/examples)可以让你快速上手CleverGo。
 
 ## 目录
 * [快速入门](quickstart.md) Quick Start
