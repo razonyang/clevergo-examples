@@ -3,6 +3,7 @@
 [![GoDoc](https://godoc.org/github.com/headwindfly/clevergo?status.svg)](https://godoc.org/github.com/headwindfly/clevergo)
 [![Build Status](https://travis-ci.org/headwindfly/clevergo.svg?branch=master)](https://travis-ci.org/headwindfly/clevergo)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](LICENSE)
+[![GitHub release](https://img.shields.io/github/release/headwindfly/clevergo.svg?maxAge=2592000)](https://github.com/headwindfly/clevergo/releases)
 
 **CleverGo** is a **simple**, **high performance** and **secure** web framework for Go (go programing language).
 It built on top of [**fasthttp**](https://github.com/valyala/fasthttp).
@@ -17,15 +18,22 @@ Such as: [**websocket**](https://github.com/clevergo/websocket),
 [**csrf**](https://github.com/clevergo/csrf), 
 [**jwt**](https://github.com/clevergo/jwt)
 
-1. [**Documentation**](#documentation)
-2. [**Features**](#features)
-3. [**Middlewares**](#middlewares)
-3. [**Examples**](#examples)
-4. [**Contribution**](#contribution)
-5. [**Relevant Packages**](#relevant-packages)
+1. [**Installation**](#installation)
+2. [**Documentation**](#documentation)
+3. [**Features**](#features)
+4. [**Middlewares**](#middlewares)
+5. [**Examples**](#examples)
+6. [**Contribution**](#contribution)
+7. [**Relevant Packages**](#relevant-packages)
 
+
+## Installation
+```
+go get github.com/headwindfly/clevergo
+```
 
 ### Documentation
+**The documentations is not complete now, but we provided completed [examples](#examples).**
 - [**English**](docs/en)
 - [**中文**](docs/zh)
 
