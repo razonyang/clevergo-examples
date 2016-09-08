@@ -7,6 +7,7 @@ import (
 	"github.com/clevergo/router"
 	"github.com/clevergo/sessions"
 	"github.com/valyala/fasthttp"
+	"html/template"
 	"sync"
 )
 
@@ -175,4 +176,10 @@ func (ctx *Context) Text(a ...interface{}) {
 // Textf responses text data to client using fmt.Fprintf().
 func (ctx *Context) Textf(format string, a ...interface{}) {
 	fmt.Fprintf(ctx, format, a...)
+}
+
+// Render for rendering a template.
+func (ctx *Context) Render(tpl *template.Template, data interface{}) {
+	ctx.SetContentTypeToHTML()
+	tpl.Execute(ctx, data)
 }
