@@ -7,6 +7,7 @@ package main
 import (
 	"errors"
 	"github.com/headwindfly/clevergo"
+	"html/template"
 	"os"
 	"path"
 	"strconv"
@@ -36,6 +37,8 @@ func index(ctx *clevergo.Context) {
 		<ul>
 			<li><a href="/html" target="_blank">HTML</a></li>
 			<li><a href="/html?code=404" target="_blank">HTML With Code: 404</a></li>
+
+			<li><a href="/render" target="_blank">Render HTML</a></li>
 
 			<li><a href="/json" target="_blank">JSON</a></li>
 			<li><a href="/json?code=404" target="_blank">JSON With Code: 404</a></li>
@@ -104,6 +107,13 @@ func xml(ctx *clevergo.Context) {
 	ctx.XML(p)
 }
 
+func render(ctx *clevergo.Context) {
+	tpl := template.Must(template.New("").Parse(`<h1>Hello {{ .Name }}</h1>`))
+	ctx.Render(tpl, map[string]interface{}{
+		"Name": "CleverGo",
+	})
+}
+
 func params(ctx *clevergo.Context) {
 	name := ctx.RouterParams.ByName("name")
 	ctx.Textf("Hello %s.", name)
@@ -127,6 +137,9 @@ func main() {
 
 	// HTML
 	router.GET("/html", clevergo.HandlerFunc(html))
+
+	// Render HTML
+	router.GET("/render", clevergo.HandlerFunc(render))
 
 	// JSON
 	router.GET("/json", clevergo.HandlerFunc(json))
