@@ -172,3 +172,8 @@ func (m CSRFMiddleware) tureToken(ctx *clevergo.Context) ([]byte, error) {
 	}
 	return utils.RandomBytes(m.len), errTokenInvalid
 }
+
+// Token returns the encoded token.
+func (m CSRFMiddleware) Token(ctx *clevergo.Context) interface{} {
+	return ctx.UserValue(m.key)
+}
