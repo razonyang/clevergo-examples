@@ -42,8 +42,7 @@ func main() {
 	app := clevergo.NewApplication()
 
 	// Create a router instance.
-	router := clevergo.NewRouter()
-	app.AddRouter("", router)
+	router := app.NewRouter("")
 
 	// Create a redis session store.
 	store := sessions.NewCookieStore([]byte("SecretKey"))

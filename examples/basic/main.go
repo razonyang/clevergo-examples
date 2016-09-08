@@ -120,8 +120,7 @@ func main() {
 	app := clevergo.NewApplication()
 
 	// Create a router instance.
-	router := clevergo.NewRouter()
-	app.AddRouter("", router)
+	router := app.NewRouter("")
 
 	// Register route handler.
 	router.GET("/", clevergo.HandlerFunc(index))

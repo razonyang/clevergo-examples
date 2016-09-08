@@ -142,10 +142,7 @@ func main() {
 	app := clevergo.NewApplication()
 
 	// Create a router instance.
-	router := clevergo.NewRouter()
-
-	// Add and set this router as application's default router.
-	app.AddRouter("", router)
+	router := app.NewRouter("")
 
 	// Note that.
 	// Before registering middleware, we should register index handler first.

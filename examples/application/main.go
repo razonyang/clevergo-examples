@@ -5,11 +5,11 @@ import (
 )
 
 func hello1(ctx *clevergo.Context) {
-	ctx.HTML("hello1")
+	ctx.HTML("clevergo.dev")
 }
 
 func hello2(ctx *clevergo.Context) {
-	ctx.HTML("hello2")
+	ctx.HTML("user.clevergo.dev")
 }
 
 func main() {
@@ -26,17 +26,14 @@ func main() {
 	// app.SetSessionStore(store)
 
 	// Create a router instance.
-	router1 := clevergo.NewRouter()
-	router2 := clevergo.NewRouter()
-
+	router1 := app.NewRouter("clevergo.dev")
 	router1.GET("/", clevergo.HandlerFunc(hello1))
+
+	router2 := app.NewRouter("user.clevergo.dev")
 	router2.GET("/", clevergo.HandlerFunc(hello2))
 
-	app.AddRouter("clevergo.dev", router1)
-	app.AddRouter("user.clevergo.dev", router2)
-
 	// Change default router
-	// app.SetDefaultRouter(router2)
+	app.SetDefaultRouter(router1)
 
 	// Start the application.
 	app.Run()

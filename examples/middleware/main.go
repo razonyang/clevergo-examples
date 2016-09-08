@@ -65,8 +65,7 @@ func main() {
 	app := clevergo.NewApplication()
 
 	// Create a router instance.
-	router := clevergo.NewRouter()
-	app.AddRouter("", router)
+	router := app.NewRouter("")
 
 	// Add middleware before registering route's handler.
 	router.AddMiddleware(&firstMiddleware{})
