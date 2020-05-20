@@ -1,0 +1,21 @@
+os:
+  - linux
+language: go
+go:
+  - 1.12.x
+  - 1.13.x
+  - 1.14.x
+  - master
+env:
+  GO111MODULE=on
+jobs:
+  allow_failures:
+    - go: master
+  fast_finish: true
+before_install:
+  - go get github.com/mattn/goveralls
+script:
+  - go test -v -covermode=count -coverprofile=coverage.out ./...
+  - go vet ./...
+  - test -z "$(gofmt -d -s . | tee /dev/stderr)"
+  - $HOME/gopath/bin/goveralls  -coverprofile=coverage.out -service=travis-ci
