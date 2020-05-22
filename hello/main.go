@@ -8,11 +8,11 @@ import (
 )
 
 func index(c *clevergo.Context) error {
-	return c.String(http.StatusOK, "hello world")
+	return c.String(http.StatusOK, "Hello world!")
 }
 
 func hello(c *clevergo.Context) error {
-	return c.String(http.StatusOK, fmt.Sprintf("hello %s", c.Params.String("name")))
+	return c.String(http.StatusOK, fmt.Sprintf("Hello %s!", c.Params.String("name")))
 }
 
 func main() {

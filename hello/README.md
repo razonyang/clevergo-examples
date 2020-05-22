@@ -1,11 +1,11 @@
 # CleverGo Hello World Example
 
 ```
-$ cd hello && go run main.go
+$ go run hello/main.go
 
 $ curl http://localhost:8080/            
-hello world
+Hello world!
 
 $ curl http://localhost:8080/hello/foobar
-hello foobar
+Hello foobar!
 ```
