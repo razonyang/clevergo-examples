@@ -1,7 +1,9 @@
-# 
-[![Build Status](https://travis-ci.org/clevergo/____.svg?branch=master)](https://travis-ci.org/clevergo/____)
-[![Coverage Status](https://coveralls.io/repos/github/clevergo/____/badge.svg?branch=master)](https://coveralls.io/github/clevergo/____?branch=master)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue)](https://pkg.go.dev/github.com/clevergo/____)
-[![Go Report Card](https://goreportcard.com/badge/github.com/clevergo/____)](https://goreportcard.com/report/github.com/clevergo/____)
-[![Release](https://img.shields.io/github/release/clevergo/____.svg?style=flat-square)](https://github.com/clevergo/____/releases)
-[![Sourcegraph](https://sourcegraph.com/github.com/clevergo/____/-/badge.svg)](https://sourcegraph.com/github.com/clevergo/____?badge)
+# CleverGo Examples
+[![Build Status](https://travis-ci.org/clevergo/examples.svg?branch=master)](https://travis-ci.org/clevergo/examples)
+[![Coverage Status](https://coveralls.io/repos/github/clevergo/examples/badge.svg?branch=master)](https://coveralls.io/github/clevergo/examples?branch=master)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue)](https://pkg.go.dev/github.com/clevergo/examples)
+[![Go Report Card](https://goreportcard.com/badge/github.com/clevergo/examples)](https://goreportcard.com/report/github.com/clevergo/examples)
+[![Release](https://img.shields.io/github/release/clevergo/examples.svg?style=flat-square)](https://github.com/clevergo/examples/releases)
+[![Sourcegraph](https://sourcegraph.com/github.com/clevergo/examples/-/badge.svg)](https://sourcegraph.com/github.com/clevergo/examples?badge)
+
+- [Hello world](hello)

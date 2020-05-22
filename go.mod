@@ -1,5 +1,5 @@
-module github.com/clevergo/____
+module github.com/clevergo/examples
 
 go 1.13
 
-require github.com/stretchr/testify v1.5.1 // indirect
+require github.com/clevergo/clevergo v1.12.2
