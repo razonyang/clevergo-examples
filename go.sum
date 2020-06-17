@@ -12,6 +12,8 @@ clevergo.tech/jsend v1.1.1 h1:gCJppcBlLGbDHA9zxYN5+c4Sy0YL3lM1doroz+w7FZw=
 clevergo.tech/jsend v1.1.1/go.mod h1:0w6SXsvj2f62Dy8fHBHFrMWQMB5K2uIzfiDFIMFh82k=
 clevergo.tech/log v0.1.1 h1:26Lcbe9hrjvWdx11cwjP817i0WTHet4puq2tolyLWTk=
 clevergo.tech/log v0.1.1/go.mod h1:vVYhefZvjnD35nIjJfv3rC4rGCKyPoTVuWKrwNmIl4s=
+clevergo.tech/tencentcaptcha v0.1.0 h1:W3yBwRvJ3aMHvdENK8y0A0u9wO/UnIrBqXHSrfXOOSI=
+clevergo.tech/tencentcaptcha v0.1.0/go.mod h1:J8/cOdG/1W+HwrdQAb7L07jaiQmwRrGfFrSkwEznP8w=
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/alexedwards/scs/v2 v2.3.1 h1:GnWuDjL2m0ZVjeiCnnKhFVr/zafkgknmOJ5KaZx1rec=
@@ -45,6 +47,8 @@ github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UV
 github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/stretchr/testify v1.5.1 h1:nOGnQDM7FYENwehXlg/kFVnos3rEvtKTjRvOWSzb6H4=
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=
+github.com/tencentcloud/tencentcloud-sdk-go v3.0.194+incompatible h1:QnX2rxSeZYc5Q2GUXSpTyGECrP+yl04htAiPjnEycnk=
+github.com/tencentcloud/tencentcloud-sdk-go v3.0.194+incompatible/go.mod h1:0PfYow01SHPMhKY31xa+EFz2RStxIqj6JFAJS+IkCi4=
 go.uber.org/atomic v1.6.0 h1:Ezj3JGmsOnG1MoRWQkPBsKLe9DwWD9QeXzTRzzldNVk=
 go.uber.org/atomic v1.6.0/go.mod h1:sABNBOSYdrvTF6hTgEIbc7YasKWGhgEQZyfxyTvoXHQ=
 go.uber.org/multierr v1.5.0 h1:KCa4XfM8CWFCpxXRGok+Q0SS/0XBhMDbHHGABQLvD2A=

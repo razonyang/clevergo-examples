@@ -10,6 +10,7 @@ require (
 	clevergo.tech/i18n v0.1.0 // indirect
 	clevergo.tech/jsend v1.1.1
 	clevergo.tech/log v0.1.1
+	clevergo.tech/tencentcaptcha v0.1.0 // indirect
 	github.com/alexedwards/scs/v2 v2.3.1
 	github.com/sirupsen/logrus v1.6.0
 	go.uber.org/zap v1.15.0
