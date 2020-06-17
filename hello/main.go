@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/clevergo/clevergo"
+	"clevergo.tech/clevergo"
 )
 
 func index(c *clevergo.Context) error {
@@ -16,8 +16,8 @@ func hello(c *clevergo.Context) error {
 }
 
 func main() {
-	router := clevergo.NewRouter()
-	router.Get("/", index)
-	router.Get("/hello/:name", hello)
-	http.ListenAndServe(":8080", router)
+	app := clevergo.New()
+	app.Get("/", index)
+	app.Get("/hello/:name", hello)
+	app.Run(":8080")
 }

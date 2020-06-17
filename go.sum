@@ -1,9 +1,11 @@
 clevergo.tech/auth v0.1.0 h1:NXUu7WVXH2XVzISJXKKIBGR122d36NmBPaXH9wx4c24=
 clevergo.tech/auth v0.1.0/go.mod h1:5OXOn82bcUQk8D0isRFS0oaEtzRJjs/fM0WCDUC16Zc=
+clevergo.tech/authmidware v0.1.1 h1:x/WE/tBnW/t/fVaKw/FVTGM1+o7/TmMRM8cgQ9LxZLo=
+clevergo.tech/authmidware v0.1.1/go.mod h1:EyN3Nc6//j3Q1fEV1lONdC+zVheoJhkFIzwRCptlbQA=
+clevergo.tech/clevergo v0.1.0 h1:OPifgX5vlnlAieVKIt1Wd9klP5dzPbqQoG1h2QRMCM0=
+clevergo.tech/clevergo v0.1.0/go.mod h1:T/O3eumTaCGhGYyUa2SsKfihykKsw48D6wwSuQTSyk0=
 github.com/alexedwards/scs/v2 v2.3.1 h1:GnWuDjL2m0ZVjeiCnnKhFVr/zafkgknmOJ5KaZx1rec=
 github.com/alexedwards/scs/v2 v2.3.1/go.mod h1:ToaROZxyKukJKT/xLcVQAChi5k6+Pn1Gvmdl7h3RRj8=
-github.com/clevergo/clevergo v1.12.2 h1:LP8MwV62n70PcwdiwbaRx5JHS21KdekubJFJgf/fd/I=
-github.com/clevergo/clevergo v1.12.2/go.mod h1:CXwWkYV6APhZU4XQ4QS6LvsutBaZYi0wMDOanjuOIlg=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"clevergo.tech/clevergo"
 	"github.com/alexedwards/scs/v2"
-	"github.com/clevergo/clevergo"
 )
 
 var (
@@ -21,10 +21,10 @@ func index(c *clevergo.Context) error {
 }
 
 func main() {
-	router := clevergo.NewRouter()
-	router.Use(
+	app := clevergo.New()
+	app.Use(
 		clevergo.WrapHH(sessionManager.LoadAndSave),
 	)
-	router.Get("/", index)
-	http.ListenAndServe(":8080", router)
+	app.Get("/", index)
+	app.Run(":8080")
 }

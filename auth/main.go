@@ -4,11 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 
 	"clevergo.tech/auth"
 	"clevergo.tech/auth/authenticators"
+	"clevergo.tech/authmidware"
+	"clevergo.tech/clevergo"
 )
 
 var authenticator auth.Authenticator
@@ -27,15 +28,16 @@ func init() {
 }
 
 func main() {
-	http.HandleFunc("/auth", func(w http.ResponseWriter, r *http.Request) {
-		identity := auth.GetIdentity(r.Context())
+	app := clevergo.New()
+	app.Use(authmidware.New(authenticator))
+	app.Get("/auth", func(c *clevergo.Context) error {
+		identity := auth.GetIdentity(c.Context())
 		if identity == nil {
-			http.Error(w, "unauthorized", http.StatusUnauthorized)
-			return
+			return c.String(http.StatusUnauthorized, "unauthorized")
 		}
-		io.WriteString(w, fmt.Sprintf("hello %s", identity.GetID()))
+		return c.String(http.StatusOK, fmt.Sprintf("hello %s", identity.GetID()))
 	})
-	http.ListenAndServe(":8080", auth.NewMiddleware(authenticator)(http.DefaultServeMux))
+	app.Run(":8080")
 }
 
 type user struct {
