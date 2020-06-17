@@ -1,4 +1,4 @@
-# CleverGo Log Example
+# Log Example
 
 ```shell
 $ go run log/main.go -adapter zap   

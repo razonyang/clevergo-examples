@@ -1,4 +1,4 @@
-# CleverGo Hello World Example
+# Hello World Example
 
 ```
 $ go run hello/main.go

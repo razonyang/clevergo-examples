@@ -1,4 +1,4 @@
-# CleverGo Session Example
+# Session Example
 
 ```
 $ go run session/main.go
