@@ -3,3 +3,4 @@
 - [Hello world](hello)
 - [Session](session)
 - [Authentication](auth)
+- [Log](log)
