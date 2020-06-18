@@ -13,3 +13,5 @@ go get clevergo.tech/examples
 - [I18N](i18n)
 - [Captchas](captchas)
 - [Tencent Captcha](tencentcaptcha)
+- Views
+ - [Jet Renderer](jetrenderer)

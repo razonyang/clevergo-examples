@@ -1,0 +1,19 @@
+{{ import "head.tmpl" }}
+{{ import "header.tmpl" }}
+{{ import "footer.tmpl" }}
+{{ import "end-of-body.tmpl" }}
+
+<!doctype html>
+<html lang="en">
+  {{ yield head() }}
+  <body>
+    {{ yield header() }}
+
+    <main role="main" class="container">
+      {{ yield body() }}
+    </main>
+    
+    {{ yield footer() }}
+    {{ yield endOfBody() }}
+  </body>
+</html>
