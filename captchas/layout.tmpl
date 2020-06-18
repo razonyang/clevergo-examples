@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>CleverGo Captchas</title>
+    <style>
+      body {
+        margin-top: 80px;
+      }
+      form img {
+        max-height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">CleverGo Captchas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/?driver=digit">Digit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/?driver=audio">Audio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/?driver=math">Math</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/?driver=string">String</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/?driver=chinese">Chinese</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/api">API</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/clevergo/captchas" target="_blank">GitHub</a>
+                </li>
+            </div>
+          </nav>
+    </header>
+
+    <main class="container">
+        {{ template "content" . }}
+    </main>
+  </body>
+</html>

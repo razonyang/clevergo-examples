@@ -11,4 +11,5 @@ go get clevergo.tech/examples
 - [JSend](jsend)
 - [Form Decoder](form)
 - [I18N](i18n)
+- [Captchas](captchas)
 - [Tencent Captcha](tencentcaptcha)

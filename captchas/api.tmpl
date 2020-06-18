@@ -1,0 +1,55 @@
+{{ define "content" }}
+
+{{ if .alert }}
+  <div class="alert alert-{{ if .valid }}success{{ else }}danger{{ end }}" role="alert">
+    {{ .alert }}
+  </div>
+{{ end }}
+
+<form class="container" action="/?driver={{ .driver }}" method="POST" onsubmit="return false;">
+  <div class="form-group row">
+    <input type="text" class="form-control col-md-2" id="captcha" name="captcha">
+      <div class="col-md-10">
+        <input type="hidden" class="form-control col-md-2" id="captchaID" name="captcha_id">
+        <img src="" id="captchaIMG">
+      </div>
+  </div>
+  <div class="form-group row">
+    <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+  </div>
+</form>
+<script>
+  $(document).ready(function() {
+    var captcha = $('#captcha')
+    var captchaID = $('#captchaID')
+    var captchaIMG = $('#captchaIMG')
+
+    generate()
+
+    captchaIMG.click(function() {
+      generate()
+    })
+
+    function generate() {
+      captchaID.val('')
+      captchaIMG.attr('src', '')
+      $.post('/generate', function (resp) {
+        console.log(resp)
+        captchaID.val(resp.id)
+        captchaIMG.attr("src", resp.data)
+      }, 'json')
+    }
+
+    $('#btnSubmit').click(function() {
+      $.post('/validate', {
+        "captcha_id": captchaID.val(),
+        "captcha": captcha.val(),
+      }, function (resp) {
+        console.log(resp)
+        alert(resp.msg)
+        generate()
+      }, 'json')
+    })
+  })
+</script>
+{{ end }}
