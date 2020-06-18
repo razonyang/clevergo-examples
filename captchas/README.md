@@ -1,7 +1,7 @@
 # Captchas Example
 
 ```shell
-$ cd example
+$ cd captchas
 
 $ go run main.go --store=memory
 
