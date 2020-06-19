@@ -16,3 +16,4 @@ go get clevergo.tech/examples
 - [Logger](logger)
 - Views
   - [Jet Renderer](jetrenderer)
+- [Graceful Shutdown](gracefulshutdown)
