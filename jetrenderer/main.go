@@ -6,12 +6,15 @@ import (
 	"strings"
 
 	"clevergo.tech/clevergo"
+	"clevergo.tech/jetpackr"
 	"clevergo.tech/jetrenderer"
 	"github.com/CloudyKit/jet/v3"
+	"github.com/gobuffalo/packr/v2"
 )
 
 func main() {
-	set := jet.NewHTMLSet("./views")
+	box := packr.New("views", "./views")
+	set := jet.NewHTMLSetLoader(jetpackr.New(box))
 	set.SetDevelopmentMode(true) // debug
 	renderer := jetrenderer.New(set)
 	renderer.SetBeforeRender(func(w io.Writer, name string, vars jet.VarMap, data interface{}, ctx *clevergo.Context) error {

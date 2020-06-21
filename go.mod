@@ -13,6 +13,7 @@ require (
 	clevergo.tech/clevergo v0.3.0
 	clevergo.tech/form v0.1.0
 	clevergo.tech/i18n v0.1.0
+	clevergo.tech/jetpackr v0.1.0
 	clevergo.tech/jetrenderer v0.1.0
 	clevergo.tech/jsend v1.1.1
 	clevergo.tech/log v0.2.0
@@ -21,9 +22,14 @@ require (
 	github.com/alexedwards/scs/v2 v2.3.1
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
 	github.com/go-redis/redis/v7 v7.4.0
+	github.com/gobuffalo/packr/v2 v2.8.0
+	github.com/karrick/godirwalk v1.15.6 // indirect
+	github.com/rogpeppe/go-internal v1.6.0 // indirect
 	github.com/sirupsen/logrus v1.6.0
 	github.com/tencentcloud/tencentcloud-sdk-go v3.0.194+incompatible
 	go.uber.org/zap v1.15.0
-	golang.org/x/sys v0.0.0-20200615200032-f1bc736245b1 // indirect
-	golang.org/x/tools v0.0.0-20200308013534-11ec41452d41 // indirect
+	golang.org/x/crypto v0.0.0-20200604202706-70a84ac30bf9 // indirect
+	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
+	golang.org/x/sys v0.0.0-20200620081246-981b61492c35 // indirect
+	golang.org/x/tools v0.0.0-20200619210111-0f592d2728bb // indirect
 )
