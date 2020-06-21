@@ -52,6 +52,25 @@ func (me *modelError) Errors() map[string]error {
 type errorHandler struct {
 }
 
+func ErrorHandler(next clevergo.Handle) clevergo.Handle {
+	return func(c *clevergo.Context) error {
+		if err := next(c); err != nil {
+			switch e := err.(type) {
+			case *modelError:
+				errs := e.Errors()
+				data := make(map[string]string)
+				for field, msg := range errs {
+					data[field] = msg.Error()
+				}
+				return c.JSON(http.StatusOK, jsend.NewFail(data))
+			default:
+				return c.JSON(http.StatusOK, jsend.NewError(err.Error(), http.StatusInternalServerError, nil))
+			}
+		}
+		return nil
+	}
+}
+
 func (eh *errorHandler) Handle(ctx *clevergo.Context, err error) {
 	switch e := err.(type) {
 	case *modelError:
@@ -127,7 +146,7 @@ func deleteUser(ctx *clevergo.Context) error {
 
 func main() {
 	app := clevergo.New()
-	app.ErrorHandler = &errorHandler{}
+	app.Use(ErrorHandler)
 	app.Get("/users", getUsers)
 	app.Post("/users", createUser)
 	app.Get("/users/:id", getUser)
