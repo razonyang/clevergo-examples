@@ -5,12 +5,16 @@
 ```
 $ go run logger/main.go -logger=zap
 
-$ curl http://localhost:8080/log    
-2020-06-20T02:35:44.194+0800    DEBUG   logger/main.go:36       debug msg
-2020-06-20T02:35:44.194+0800    DEBUG   logger/main.go:37       debugf msg
-2020-06-20T02:35:44.194+0800    INFO    logger/main.go:38       debug
-2020-06-20T02:35:44.194+0800    INFO    logger/main.go:39       debugf
-2020-06-20T02:35:44.194+0800    WARN    logger/main.go:40       warn msg
+$ curl http://localhost:8080/log
+{"level":"info","msg":"Listening on :8080.\n"}
+{"level":"debug","msg":"debug msg"}
+{"level":"debug","msg":"debugf msg"}
+{"level":"info","msg":"debug"}
+{"level":"info","msg":"debugf"}
+{"level":"warn","msg":"warn msg"}
+{"level":"warn","msg":"warnf msg"}
+{"level":"error","msg":"error msg"}
+{"level":"error","msg":"errorf msg"}
 ...
 ```
 

@@ -22,8 +22,9 @@ func main() {
 	case "logrus":
 		logger = logrus.New()
 	case "zap":
-		zapLogger, _ := zap.NewDevelopment()
-		logger = zapLogger.Sugar()
+		logger = zap.NewExample().Sugar()
+	default:
+		logger = log.New()
 	}
 
 	app := clevergo.New()
