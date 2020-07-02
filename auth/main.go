@@ -8,7 +8,7 @@ import (
 
 	"clevergo.tech/auth"
 	"clevergo.tech/auth/authenticators"
-	"clevergo.tech/authmidware"
+	"clevergo.tech/authmiddleware"
 	"clevergo.tech/clevergo"
 )
 
@@ -29,7 +29,7 @@ func init() {
 
 func main() {
 	app := clevergo.New()
-	app.Use(authmidware.New(authenticator))
+	app.Use(authmiddleware.New(authenticator))
 	app.Get("/auth", func(c *clevergo.Context) error {
 		identity := auth.GetIdentity(c.Context())
 		if identity == nil {

@@ -4,13 +4,13 @@ go 1.13
 
 require (
 	clevergo.tech/auth v0.1.0
-	clevergo.tech/authmidware v0.1.1
+	clevergo.tech/authmiddleware v0.1.0
 	clevergo.tech/captchas v0.1.0
 	clevergo.tech/captchas/drivers v0.1.0
 	clevergo.tech/captchas/stores/memcachedstore v0.1.0
 	clevergo.tech/captchas/stores/memstore v0.1.0
 	clevergo.tech/captchas/stores/redisstore v0.1.0
-	clevergo.tech/clevergo v0.3.0
+	clevergo.tech/clevergo v0.4.0
 	clevergo.tech/form v0.1.0
 	clevergo.tech/i18n v0.1.0
 	clevergo.tech/jetpackr v0.1.0

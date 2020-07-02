@@ -1,7 +1,7 @@
 clevergo.tech/auth v0.1.0 h1:NXUu7WVXH2XVzISJXKKIBGR122d36NmBPaXH9wx4c24=
 clevergo.tech/auth v0.1.0/go.mod h1:5OXOn82bcUQk8D0isRFS0oaEtzRJjs/fM0WCDUC16Zc=
-clevergo.tech/authmidware v0.1.1 h1:x/WE/tBnW/t/fVaKw/FVTGM1+o7/TmMRM8cgQ9LxZLo=
-clevergo.tech/authmidware v0.1.1/go.mod h1:EyN3Nc6//j3Q1fEV1lONdC+zVheoJhkFIzwRCptlbQA=
+clevergo.tech/authmiddleware v0.1.0 h1:glzZdhfKL83ldRadnf0Ewug1cWzFrGSIaM2Ko+3ycWg=
+clevergo.tech/authmiddleware v0.1.0/go.mod h1:YQbtN9OEVPrdmQHZBw96FubNbHB0du+ZLBoWWgwxdqg=
 clevergo.tech/captchas v0.1.0 h1:ChR82wrJz/8aarkyxFg/gXH9ysBBaBZZZBXQgVu2xSo=
 clevergo.tech/captchas v0.1.0/go.mod h1:PbpBsWyXUc4UJJl+/Nn4YStY8kFnYFt6tw3gwcRemVo=
 clevergo.tech/captchas/drivers v0.1.0 h1:yh3iavKC6oYbVrMbp+1xiz0R8dj8MCBoGVa9ZhYgEtk=
@@ -14,8 +14,8 @@ clevergo.tech/captchas/stores/redisstore v0.1.0 h1:DnYl4zZTaQyOnj4WUqmaFLdoktmSM
 clevergo.tech/captchas/stores/redisstore v0.1.0/go.mod h1:D3y4NnaamYIU4TZtQTVtLAYnwLWyDx2mGstO3RTxR3c=
 clevergo.tech/clevergo v0.1.0 h1:OPifgX5vlnlAieVKIt1Wd9klP5dzPbqQoG1h2QRMCM0=
 clevergo.tech/clevergo v0.1.0/go.mod h1:T/O3eumTaCGhGYyUa2SsKfihykKsw48D6wwSuQTSyk0=
-clevergo.tech/clevergo v0.3.0 h1:TZGTEGQzqu+1tYknWPYu3ku5APLNDf1XEQiAlS0d8ek=
-clevergo.tech/clevergo v0.3.0/go.mod h1:i8p1KgNDl2TlwfVV541OQDDRJpySNUyP6eOA0qEfI4Y=
+clevergo.tech/clevergo v0.4.0 h1:z5ZtmOzBk27BQYZjW20iUxTd/4atZfLP6XaUD1NVGDE=
+clevergo.tech/clevergo v0.4.0/go.mod h1:i8p1KgNDl2TlwfVV541OQDDRJpySNUyP6eOA0qEfI4Y=
 clevergo.tech/form v0.1.0 h1:yrQRSx3sPj555brJMuFc+tWOnaEgqz7f7HLJgH2u9gk=
 clevergo.tech/form v0.1.0/go.mod h1:fXU+h1gylVgBw3CWQYD9bRs++C/9FniBOA06KC8V6jE=
 clevergo.tech/i18n v0.1.0 h1:xwu5DTk/X6LKG1R4EDwrBuZqqbH4tOEcVx8Od7PaZJs=
