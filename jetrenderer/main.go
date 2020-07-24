@@ -8,7 +8,7 @@ import (
 	"clevergo.tech/clevergo"
 	"clevergo.tech/jetpackr"
 	"clevergo.tech/jetrenderer"
-	"github.com/CloudyKit/jet/v3"
+	"github.com/CloudyKit/jet/v4"
 	"github.com/gobuffalo/packr/v2"
 )
 
