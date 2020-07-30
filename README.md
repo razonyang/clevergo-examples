@@ -17,3 +17,4 @@ go get clevergo.tech/examples
 - Views
   - [Jet Renderer](jetrenderer)
 - [Graceful Shutdown](gracefulshutdown)
+- [Shields.io endpoint](shields)

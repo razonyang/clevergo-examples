@@ -17,9 +17,9 @@ require (
 	clevergo.tech/jetrenderer v0.2.0
 	clevergo.tech/jsend v1.1.1
 	clevergo.tech/log v0.2.0
+	clevergo.tech/shields v0.2.0
 	clevergo.tech/tencentcaptcha v0.1.0
-	github.com/CloudyKit/jet/v3 v3.0.0
-	github.com/CloudyKit/jet/v4 v4.1.0 // indirect
+	github.com/CloudyKit/jet/v4 v4.1.0
 	github.com/alexedwards/scs/v2 v2.3.1
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
 	github.com/go-redis/redis/v7 v7.4.0
