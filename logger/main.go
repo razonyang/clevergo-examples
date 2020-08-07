@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	stdlog "log"
+	"os"
 
 	"clevergo.tech/clevergo"
 	"clevergo.tech/log"
@@ -24,7 +26,7 @@ func main() {
 	case "zap":
 		logger = zap.NewExample().Sugar()
 	default:
-		logger = log.New()
+		logger = log.New(os.Stderr, "", stdlog.LstdFlags)
 	}
 
 	app := clevergo.New()

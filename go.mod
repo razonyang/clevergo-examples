@@ -10,13 +10,13 @@ require (
 	clevergo.tech/captchas/stores/memcachedstore v0.1.0
 	clevergo.tech/captchas/stores/memstore v0.1.0
 	clevergo.tech/captchas/stores/redisstore v0.1.0
-	clevergo.tech/clevergo v0.4.1
+	clevergo.tech/clevergo v0.5.0
 	clevergo.tech/form v0.1.0
 	clevergo.tech/i18n v0.1.0
 	clevergo.tech/jetpackr v0.2.0
 	clevergo.tech/jetrenderer v0.3.0
 	clevergo.tech/jsend v1.1.1
-	clevergo.tech/log v0.2.0
+	clevergo.tech/log v0.3.0
 	clevergo.tech/shields v0.2.0
 	clevergo.tech/tencentcaptcha v0.1.0
 	github.com/CloudyKit/jet/v4 v4.1.0 // indirect
