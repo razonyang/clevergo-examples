@@ -31,9 +31,6 @@ require (
 	github.com/sirupsen/logrus v1.6.0
 	github.com/tencentcloud/tencentcloud-sdk-go v3.0.219+incompatible
 	go.uber.org/zap v1.15.0
-	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899 // indirect
+	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/image v0.0.0-20200618115811-c13761719519 // indirect
-	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
-	golang.org/x/sys v0.0.0-20200722175500-76b94024e4b6 // indirect
-	golang.org/x/tools v0.0.0-20200619210111-0f592d2728bb // indirect
 )
