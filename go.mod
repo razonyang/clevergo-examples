@@ -32,5 +32,5 @@ require (
 	github.com/tencentcloud/tencentcloud-sdk-go v3.0.219+incompatible
 	go.uber.org/zap v1.15.0
 	golang.org/x/crypto v0.1.0 // indirect
-	golang.org/x/image v0.0.0-20200618115811-c13761719519 // indirect
+	golang.org/x/image v0.5.0 // indirect
 )
